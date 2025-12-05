@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Your Order | Online Clothing Store</title>
+    <link rel="stylesheet" href="track_order.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="track-header">
+        <h1>📦 Track Your Order 🚚</h1>
+        <p>Enter your Order ID below to see the latest status of your delivery.</p>
+    </header>
+
+    <main class="track-container">
+        
+        <section class="tracking-form-section">
+            <form id="trackingForm">
+                <label for="orderId" class="input-label">Enter your 10-Digit Order ID:</label>
+                <div class="input-group">
+                    <input type="text" id="orderId" name="orderId" placeholder="E.g., OCS1234567" required maxlength="10">
+                    <button type="submit" class="track-btn">Track Order</button>
+                </div>
+                <p class="form-help">Need help finding your Order ID? Check your confirmation email.</p>
+            </form>
+        </section>
+
+        <section id="statusDisplay" class="status-display-section" style="display: none;">
+            <h2 class="order-id-title">Tracking Order: <span id="displayedOrderId"></span></h2>
+            
+            <div class="tracking-timeline">
+                <div class="line-fill"></div> 
+                
+                <div class="timeline-step active" id="step1">
+                    <div class="step-icon">🛒</div>
+                    <div class="step-text">Order Placed</div>
+                </div>
+                <div class="timeline-step" id="step2">
+                    <div class="step-icon">📦</div>
+                    <div class="step-text">Processing/Packed</div>
+                </div>
+                <div class="timeline-step" id="step3">
+                    <div class="step-icon">✈️</div>
+                    <div class="step-text">Shipped</div>
+                </div>
+                <div class="timeline-step" id="step4">
+                    <div class="step-icon">🏠</div>
+                    <div class="step-text">Out for Delivery</div>
+                </div>
+                <div class="timeline-step" id="step5">
+                    <div class="step-icon">✅</div>
+                    <div class="step-text">Delivered</div>
+                </div>
+            </div>
+
+            <div class="detail-card">
+                <h3>Latest Update</h3>
+                <p id="latestStatus">Order placed successfully. Waiting for warehouse processing.</p>
+                <p id="estimatedDelivery">Estimated Delivery: 2 December 2025</p>
+                <a href="#" class="help-link">View Shipping Details</a>
+            </div>
+            
+        </section>
+
+        <div id="errorMessage" class="error-message" style="display: none;">
+            <p>⚠️ Error: The Order ID <span id="errorOrderId"></span> was not found. Please check the ID and try again.</p>
+        </div>
+
+    </main>
+
+    <script>
+
+document.getElementById('trackingForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const orderIdInput = document.getElementById('orderId');
+    const orderId = orderIdInput.value.toUpperCase().trim();
+
+    // RESET THE DISPLAY AND ERROR MESSAGE
+    document.getElementById('statusDisplay').style.display = 'none';
+    document.getElementById('errorMessage').style.display = 'none';
+    
+    // INPUT VALIDATION
+    if (orderId.length !== 10) {
+        alert("Please enter a valid 10-digit Order ID.");
+        return;
+    }
+
+    // --- Simulated) ORDER DATA ---
+    const statusData = {
+        'OCS1234567': { // Shipped
+            stage: 3, 
+            status: 'Your package has been successfully dispatched from our warehouse and is in transit.',
+            delivery: '2 December 2025'
+        },
+        'OCS9876543': { // Delivered
+            stage: 5,
+            status: 'Delivered! Your order was successfully delivered on 26 November 2025.',
+            delivery: '26 November 2025 (Delivered)'
+        },
+        'OCS1111111': { // Placed
+            stage: 1,
+            status: 'Order placed successfully. Awaiting processing.',
+            delivery: '5 December 2025'
+        },
+        'OCS5555555': { // Out for Delivery
+            stage: 4,
+            status: 'Your order is Out for Delivery today. Please ensure someone is available to receive it.',
+            delivery: 'TODAY, 28 November 2025'
+        }
+    };
+    // ------------------------------------
+
+    const orderInfo = statusData[orderId];
+
+    if (orderInfo) {
+        // DISPLAY THE CORRECT ORDER
+        document.getElementById('displayedOrderId').textContent = orderId;
+        
+        // DISPLAY THE STATUS
+        document.getElementById('statusDisplay').style.display = 'block';
+
+        // UPDATE THE TIMELINE
+        updateTimeline(orderInfo.stage);
+        
+        // UPDATE DETAILS
+        document.getElementById('latestStatus').textContent = orderInfo.status;
+        document.getElementById('estimatedDelivery').textContent = 'Estimated Delivery: ' + orderInfo.delivery;
+
+    } else {
+        // sHOW ERROR MESSAGE
+        document.getElementById('errorOrderId').textContent = orderId;
+        document.getElementById('errorMessage').style.display = 'block';
+    }
+});
+
+function updateTimeline(currentStage) {
+    const totalStages = 5;
+    const lineFill = document.querySelector('.line-fill');
+    
+    
+    const fillWidth = ((currentStage - 1) / (totalStages - 1)) * 100;
+    
+    
+    lineFill.style.width = `${fillWidth}%`;
+
+    // START ACTIVE STEPS
+    for (let i = 1; i <= totalStages; i++) {
+        const step = document.getElementById(`step${i}`);
+        // REMOVE ACTIVE CLASS
+        step.classList.remove('active');
+        
+        
+        if (i <= currentStage) {
+            step.classList.add('active');
+        }
+    }
+}
+
+
+
+    </script> 
+</body>
+</html>

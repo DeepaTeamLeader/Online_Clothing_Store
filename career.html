@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers at Online Clothing Store</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind Colors for Teal Theme -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-teal': '#008080', // A strong teal green
+                        'light-teal': '#E0FFFF', // Very light cyan/teal
+                        'store-white': '#FFFFFF',
+                        'store-gray': '#F9FAFB',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Apply the Inter font globally */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0fdfa; /* Very light background for contrast */
+        }
+        /* Style for active buttons and cards */
+        .job-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        .job-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 128, 128, 0.2); /* Teal shadow on hover */
+        }
+        /* Style for inputs to match the teal theme */
+        .app-input {
+            @apply p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-primary-teal transition duration-300;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Header Section (Teal Green) -->
+    <header class="bg-primary-teal shadow-xl">
+        <div class="container mx-auto px-4 py-8">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-store-white text-center tracking-tight">
+                Career Opportunities
+            </h1>
+            <p class="text-center mt-2 text-light-teal font-light max-w-2xl mx-auto">
+                Join the team shaping the future of sustainable and stylish online retail.
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto px-4 py-12 flex-grow">
+        
+        <!-- ============================================== -->
+        <!-- 1. JOB LISTINGS VIEW (Initially Visible) -->
+        <!-- ============================================== -->
+        <div id="listings-view">
+            
+            <!-- Value Proposition Section -->
+            <section class="mb-12 text-center">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">Why Work With Us?</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div class="bg-store-white p-6 rounded-xl shadow-md border-t-4 border-primary-teal">
+                        <div class="text-4xl text-primary-teal mb-3">🛍️</div>
+                        <h3 class="font-semibold text-lg mb-1">Creative Environment</h3>
+                        <p class="text-gray-600 text-sm">Contribute ideas that directly impact our fashion lines and customer experience.</p>
+                    </div>
+                    <div class="bg-store-white p-6 rounded-xl shadow-md border-t-4 border-primary-teal">
+                        <div class="text-4xl text-primary-teal mb-3">🌱</div>
+                        <h3 class="font-semibold text-lg mb-1">Sustainable Focus</h3>
+                        <p class="text-gray-600 text-sm">Be a part of a company committed to eco-friendly fashion practices.</p>
+                    </div>
+                    <div class="bg-store-white p-6 rounded-xl shadow-md border-t-4 border-primary-teal">
+                        <div class="text-4xl text-primary-teal mb-3">🤝</div>
+                        <h3 class="font-semibold text-lg mb-1">Growth & Benefits</h3>
+                        <p class="text-gray-600 text-sm">Competitive pay, flexible work options, and professional development support.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Search and Filter Section -->
+            <section class="bg-store-gray p-6 rounded-xl shadow-inner mb-10">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Find Your Next Role</h2>
+                <div class="flex flex-col md:flex-row gap-4">
+                    <!-- Search Bar -->
+                    <input type="text" id="search-input" placeholder="Search by job title or keyword..."
+                           class="flex-grow p-3 border-2 border-primary-teal rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-teal placeholder-gray-500 transition duration-300">
+                    
+                    <!-- Category Filter -->
+                    <select id="category-filter"
+                            class="p-3 border-2 border-primary-teal rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-teal text-gray-700 bg-store-white cursor-pointer transition duration-300">
+                        <option value="all">All Departments</option>
+                        <option value="tech">Technology & Engineering</option>
+                        <option value="design">Fashion & Design</option>
+                        <option value="marketing">Marketing & E-commerce</option>
+                        <option value="operations">Logistics & Operations</option>
+                    </select>
+
+                    <!-- Reset Button -->
+                    <button onclick="resetFilters()"
+                            class="p-3 rounded-lg bg-primary-teal text-store-white font-semibold transition duration-300 shadow-md hover:bg-teal-700 active:bg-teal-900 focus:outline-none focus:ring-2 focus:ring-primary-teal">
+                        Reset
+                    </button>
+                </div>
+            </section>
+
+            <!-- Job Listings Grid -->
+            <section>
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 border-b-2 border-primary-teal pb-2">Open Positions</h2>
+                <div id="job-listings" class="space-y-6">
+                    <!-- Dynamic job cards will be inserted here -->
+                    <p id="no-results" class="hidden text-xl text-center text-gray-500 py-10">
+                        No open positions found matching your criteria. Check back soon!
+                    </p>
+                </div>
+            </section>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- 2. APPLICATION FORM VIEW (Initially Hidden) -->
+        <!-- ============================================== -->
+        <div id="application-view" class="hidden">
+            <button onclick="hideApplicationForm()" class="mb-6 inline-flex items-center text-primary-teal hover:text-teal-700 font-semibold transition duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Back to Job Listings
+            </button>
+
+            <div class="bg-store-white p-6 sm:p-10 rounded-xl shadow-lg max-w-3xl mx-auto">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Job Application</h2>
+                <p class="text-gray-600 mb-6">You are applying for the position of <span id="application-job-title" class="font-semibold text-primary-teal">[Job Title Placeholder]</span>.</p>
+
+                <form id="job-application-form" onsubmit="handleApplicationSubmit(event)">
+                    <!-- Hidden input to store selected job title -->
+                    <input type="hidden" id="applied-job" name="applied_job" value="">
+
+                    <!-- Full Name -->
+                    <div class="mb-4">
+                        <label for="full-name" class="block text-gray-700 font-medium mb-2">Full Name</label>
+                        <input type="text" id="full-name" name="full_name" required class="app-input">
+                    </div>
+
+                    <!-- Email -->
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                        <input type="email" id="email" name="email" required class="app-input">
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="mb-4">
+                        <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="app-input">
+                    </div>
+
+                    <!-- Resume Upload (Mocked) -->
+                    <div class="mb-6">
+                        <label for="resume" class="block text-gray-700 font-medium mb-2">Upload Resume (PDF/DOCX)</label>
+                        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required class="w-full text-gray-700">
+                        <p class="text-xs text-gray-500 mt-1">Note: This is a mock upload, files will not be saved.</p>
+                    </div>
+
+                    <!-- Cover Letter -->
+                    <div class="mb-6">
+                        <label for="cover-letter" class="block text-gray-700 font-medium mb-2">Cover Letter (Optional)</label>
+                        <textarea id="cover-letter" name="cover_letter" rows="4" class="app-input resize-none"></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit"
+                            class="w-full py-3 rounded-lg bg-primary-teal text-store-white font-semibold text-lg transition duration-300 shadow-md hover:bg-teal-700 active:bg-teal-900 focus:outline-none focus:ring-2 focus:ring-primary-teal">
+                        Submit Application
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- 3. SUCCESS MESSAGE MODAL (Custom, initially Hidden) -->
+        <!-- ============================================== -->
+        <div id="success-message" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4 z-50" onclick="this.classList.add('hidden')">
+            <div class="bg-store-white p-8 rounded-xl shadow-2xl max-w-sm w-full text-center transform transition-all" onclick="event.stopPropagation()">
+                <div class="text-primary-teal mx-auto mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">Application Successful!</h3>
+                <p class="text-gray-600 mb-4">Thank you for applying for the <span id="successful-job-title" class="font-semibold text-primary-teal"></span> position. We will review your submission shortly.</p>
+                <button onclick="hideSuccessMessage()" class="py-2 px-6 rounded-full border-2 border-primary-teal text-primary-teal font-semibold hover:bg-light-teal transition duration-300">
+                    Close
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer (Matching the Teal theme) -->
+    <footer class="bg-primary-teal mt-16 py-6">
+        <div class="container mx-auto text-center text-light-teal">
+            <p>&copy; <span id="current-year"></span> Online Clothing Store. Careers.</p>
+            <p class="text-sm mt-1">Ready to apply? Contact careers@clothingstore.com</p>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year for the footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // 1. Mock Job Data
+        const jobData = [
+            {
+                id: 1,
+                title: "Senior Full-Stack Developer",
+                location: "Remote (Global)",
+                type: "Full-Time",
+                category: "tech",
+                description: "Build and maintain our core e-commerce platform and optimize performance."
+            },
+            {
+                id: 2,
+                title: "Fashion Designer - Sustainable Line",
+                location: "New York, NY",
+                type: "Full-Time",
+                category: "design",
+                description: "Lead the creation and development of our new eco-friendly apparel collection."
+            },
+            {
+                id: 3,
+                title: "E-commerce Marketing Specialist",
+                location: "Austin, TX / Remote",
+                type: "Full-Time",
+                category: "marketing",
+                description: "Manage digital campaigns (SEO/SEM) and social media strategy to drive sales."
+            },
+            {
+                id: 4,
+                title: "Warehouse Logistics Coordinator",
+                location: "Los Angeles, CA",
+                type: "Full-Time",
+                category: "operations",
+                description: "Oversee inventory management and streamline global shipping processes."
+            },
+            {
+                id: 5,
+                title: "Junior Web Analyst",
+                location: "Remote (US)",
+                type: "Part-Time",
+                category: "tech",
+                description: "Analyze user behavior data to provide actionable insights for product optimization."
+            }
+        ];
+
+        // 2. Main Function to Render Listings
+        function renderJobListings(jobs) {
+            const container = document.getElementById('job-listings');
+            const noResults = document.getElementById('no-results');
+            container.innerHTML = ''; 
+
+            if (jobs.length === 0) {
+                noResults.classList.remove('hidden');
+                return;
+            } else {
+                noResults.classList.add('hidden');
+            }
+
+            jobs.forEach(job => {
+                const jobCard = `
+                    <div class="job-card bg-store-white p-6 rounded-xl shadow-lg flex flex-col md:flex-row justify-between items-start md:items-center border-l-4 border-primary-teal">
+                        <div class="mb-4 md:mb-0">
+                            <h3 class="text-xl font-bold text-gray-900">${job.title}</h3>
+                            <p class="text-sm text-gray-600">${job.location} | ${job.type}</p>
+                            <p class="text-sm text-gray-500 mt-2">${job.description}</p>
+                        </div>
+                        <!-- IMPORTANT: Updated onclick to show the application form -->
+                        <button onclick="showApplicationForm('${job.title.replace(/'/g, "\\'")}')" 
+                           class="py-2 px-6 rounded-full bg-primary-teal text-store-white font-semibold transition duration-300 shadow-md hover:bg-teal-700 active:scale-95 whitespace-nowrap self-start md:self-auto">
+                            Apply Now
+                        </button>
+                    </div>
+                `;
+                container.innerHTML += jobCard;
+            });
+        }
+
+        // 3. Filtering and Searching Logic
+        function filterJobs() {
+            const searchInput = document.getElementById('search-input').value.toLowerCase();
+            const categoryFilter = document.getElementById('category-filter').value;
+
+            const filteredJobs = jobData.filter(job => {
+                const matchesSearch = job.title.toLowerCase().includes(searchInput) || 
+                                      job.description.toLowerCase().includes(searchInput);
+                
+                const matchesCategory = categoryFilter === 'all' || job.category === categoryFilter;
+
+                return matchesSearch && matchesCategory;
+            });
+
+            renderJobListings(filteredJobs);
+        }
+
+        // 4. Reset Filters
+        function resetFilters() {
+            document.getElementById('search-input').value = '';
+            document.getElementById('category-filter').value = 'all';
+            filterJobs(); // Re-render all jobs
+        }
+
+        // 5. Function to show the application form
+        function showApplicationForm(jobTitle) {
+            // Set the job title in the form header and hidden input
+            document.getElementById('application-job-title').textContent = jobTitle;
+            document.getElementById('applied-job').value = jobTitle;
+            
+            // Hide listings view and show application view
+            document.getElementById('listings-view').classList.add('hidden');
+            document.getElementById('application-view').classList.remove('hidden');
+
+            // Scroll to the top of the form
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // 6. Function to hide the application form and return to listings
+        function hideApplicationForm() {
+            document.getElementById('application-view').classList.add('hidden');
+            document.getElementById('listings-view').classList.remove('hidden');
+        }
+
+        // 7. Function to handle form submission (MOCK)
+        function handleApplicationSubmit(event) {
+            event.preventDefault(); // Stop actual form submission
+            
+            const appliedJob = document.getElementById('applied-job').value;
+
+            // Hide the form view
+            document.getElementById('application-view').classList.add('hidden');
+
+            // Show the success message modal
+            document.getElementById('successful-job-title').textContent = appliedJob;
+            document.getElementById('success-message').classList.remove('hidden');
+
+            // Optional: Reset the form fields
+            document.getElementById('job-application-form').reset();
+
+            // Return to the top of the page (or listing view) after success
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // 8. Function to hide the success modal and return to listings view
+        function hideSuccessMessage() {
+            document.getElementById('success-message').classList.add('hidden');
+            // Show the listings view again
+            document.getElementById('listings-view').classList.remove('hidden');
+        }
+
+        // 9. Setup Event Listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initial render of all jobs
+            renderJobListings(jobData); 
+
+            // Attach listeners for dynamic filtering 
+            document.getElementById('search-input').addEventListener('input', filterJobs);
+            document.getElementById('category-filter').addEventListener('change', filterJobs);
+        });
+    </script>
+</body>
+</html>

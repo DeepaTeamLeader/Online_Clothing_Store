@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚚 Shipping & Delivery Information</title>
+    <link rel="stylesheet" href="shipping.css"> 
+</head>
+<body>
+
+    <header>
+        <h1>Global Shipping & Delivery</h1>
+        <p>Fast, reliable, and secure delivery options for everyone.</p>
+    </header>
+
+    <main class="shipping-container">
+
+        <section id="rates-table">
+            <h2 class="section-title">📦 Estimated Shipping Rates & Times</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Shipping Zone</th>
+                            <th>Method</th>
+                            <th>Timeframe (Business Days)</th>
+                            <th>Cost</th>
+                            <th>Free Shipping Threshold</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-zone="domestic">
+                            <td>Domestic (Country Name)</td>
+                            <td>Standard</td>
+                            <td>3 - 7 days</td>
+                            <td>$5.00</td>
+                            <td>Orders over $50</td>
+                        </tr>
+                        <tr data-zone="domestic">
+                            <td>Domestic (Country Name)</td>
+                            <td>Express</td>
+                            <td>1 - 2 days</td>
+                            <td>$15.00</td>
+                            <td>N/A</td>
+                        </tr>
+                        <tr data-zone="international">
+                            <td>International (Zone A)</td>
+                            <td>Standard Tracked</td>
+                            <td>7 - 14 days</td>
+                            <td>$12.00</td>
+                            <td>Orders over $150</td>
+                        </tr>
+                        <tr data-zone="international">
+                            <td>International (Zone B)</td>
+                            <td>Premium Courier</td>
+                            <td>5 - 10 days</td>
+                            <td>$25.00</td>
+                            <td>N/A</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="policy-details">
+            <h2 class="section-title">📝 Important Policy Details</h2>
+            <div class="policy-card">
+                <h3>Processing Time <span class="icon">⏱️</span></h3>
+                <p>All orders are processed within 1-3 business days. Orders placed after 1 PM on Fridays will be shipped the following Monday.</p>
+            </div>
+            
+            <div class="policy-card">
+                <h3>Customs & Duties <span class="icon">🌍</span></h3>
+                <p>International shipments may be subject to customs duties and taxes upon arrival. These charges are the recipient's responsibility and are not included in the item price or shipping cost.</p>
+            </div>
+
+            <div class="policy-card">
+                <h3>Tracking Your Order <span class="icon">🔍</span></h3>
+                <p>Once your order ships, you will receive an email notification containing your tracking number. You can use this number on the courier's website to monitor your shipment's progress.</p>
+                <button id="track-btn" class="cta-button">Track My Order Now</button>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="current-time-footer">
+        <p>For more detailed information, please contact our support team.</p>
+        <p id="time-display"></p>
+    </footer>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+    const timeDisplay = document.getElementById('time-display');
+    const trackButton = document.getElementById('track-btn');
+
+    // Function to update the current time in the footer
+    function updateClock() {
+        const now = new Date();
+        const options = { 
+            weekday: 'long', 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric', 
+            hour: '2-digit', 
+            minute: '2-digit', 
+            second: '2-digit', 
+            hour12: true 
+        };
+        const timeString = now.toLocaleString('en-US', options);
+        timeDisplay.textContent = `Current System Time: ${timeString}`;
+    }
+
+    // Update the clock every second
+    setInterval(updateClock, 1000);
+    updateClock(); // Initial call to display immediately
+
+    // Handle the "Track My Order" button click
+    if (trackButton) {
+        trackButton.addEventListener('click', function() {
+            // In a real scenario, you would redirect the user to a tracking page
+            alert('Redirecting you to the Order Tracking portal!');
+            
+            // For a production site, replace the alert with:
+            // window.location.href = '/track-order'; 
+        });
+    }
+});
+    </script>
+</body>
+</html>

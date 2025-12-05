@@ -1,0 +1,127 @@
+/* returns_style.css */
+
+:root {
+    --main-bg: #f7fff7; /* Very light green/mint background */
+    --primary-color: #008080; /* Teal/Deep Mint for primary accents */
+    --accent-color: #2f8f89; /* Bright Cyan for highlight */
+    --text-color: #333;
+    --card-bg: #ffffff;
+    --card-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--main-bg);
+    padding: 20px;
+    color: var(--text-color);
+}
+
+.policy-section-container {
+    max-width: 950px;
+    margin: 40px auto;
+    padding: 30px;
+    background: var(--card-bg);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.policy-header {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 4px solid var(--accent-color);
+}
+
+.policy-intro {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.15em;
+    color: #555;
+}
+
+/* --- Card Styling --- */
+.policy-card {
+    background: var(--card-bg);
+    border: 1px solid #e0f2f1;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 25px;
+    transition: all 0.3s ease;
+}
+
+.policy-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--card-shadow);
+}
+
+.card-icon {
+    font-size: 3em;
+    margin-bottom: 15px;
+    line-height: 1;
+}
+
+.policy-card h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+/* Specific Card Colors */
+.process-card {
+    border-left: 6px solid var(--accent-color); /* Bright border */
+    background-color: #e0f7fa; /* Light cyan background */
+}
+
+.exchange-card {
+    border-left: 6px solid var(--primary-color);
+    background-color: #e8f5e9; /* Light mint background */
+}
+
+/* List Styling (Bulleted/Numbered) */
+.policy-card ul, .policy-card ol {
+    padding-left: 25px;
+    margin: 15px 0;
+}
+
+.policy-card li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+/* Exchange Note Highlight */
+.exchange-note {
+    background-color: #fffde7; /* Yellowish background */
+    border: 1px solid #ffeb3b;
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 5px;
+    font-style: italic;
+    color: #795548;
+}
+
+/* --- Responsive Adjustment --- */
+@media (max-width: 768px) {
+    .policy-section-container {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .policy-header {
+        font-size: 1.6em;
+    }
+
+    .policy-intro {
+        font-size: 1em;
+    }
+
+    .policy-card {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    .policy-card h2 {
+        font-size: 1.2em;
+    }
+}

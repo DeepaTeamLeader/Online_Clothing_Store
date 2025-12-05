@@ -1,0 +1,106 @@
+/* cancellation_style.css */
+
+:root {
+    --main-bg: #f8f9fa; /* Light background */
+    --primary-color: #2f8f89; /* Blue for primary accents (professional look) */
+    --success-color: #28a745; /* Green for successful actions */
+    --warning-color: #dc3545; /* Red/Orange for warnings/late actions */
+    --text-color: #343a40;
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--main-bg);
+    padding: 20px;
+    color: var(--text-color);
+}
+
+.policy-section-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.policy-header {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 10px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.policy-intro {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+    color: #6c757d;
+}
+
+/* --- Card Styling --- */
+.policy-card {
+    background: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.policy-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--card-shadow);
+}
+
+.card-icon {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.policy-card h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+    font-size: 1.4em;
+    border-bottom: 1px dashed #ced4da;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+/* Specific Card Colors for Highlighting */
+.policy-card.active-card {
+    border-left: 5px solid var(--success-color);
+    background-color: #e6ffed; /* Light green background */
+}
+
+.policy-card.warning-card {
+    border-left: 5px solid var(--warning-color);
+    background-color: #fff0f3; /* Light red/pink background */
+}
+
+/* List Styling */
+.policy-card ul {
+    padding-left: 20px;
+    margin: 10px 0 0 0;
+}
+
+.policy-card li {
+    margin-bottom: 8px;
+    list-style: circle;
+    color: var(--text-color);
+}
+
+
+/* --- Responsive Adjustment --- */
+@media (max-width: 768px) {
+    .policy-section-container {
+        margin: 20px 10px;
+        padding: 20px;
+    }
+
+    .policy-header {
+        font-size: 1.8em;
+    }
+}

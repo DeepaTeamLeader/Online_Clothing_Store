@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Use - Your Website Name</title>
+    <link rel="stylesheet" href="terms-of-use.css">
+ </head>
+<body>
+    <header>
+        <h1>TERMS OF USE</h1>
+        <p>Last Updated: November 28, 2025</p>
+    </header>
+
+    <main class="terms-container">
+
+        <section id="acceptance" class="term-section">
+            <h2>1. Agreement to Terms</h2>
+            <p>By using our website, you agree to these Terms of Use and our Privacy Policy. If you do not agree to all of these terms, do not use this website.</p>
+        </section>
+
+        <section id="use-license" class="term-section">
+            <h2>2. Intellectual Property Rights</h2>
+            <p>Unless otherwise indicated, the website is our proprietary property. All source code, databases, functionality, website designs, audio, video, text, photographs, and graphics on the Site (collectively, the "Content") are owned or controlled by us.</p>
+            <ul>
+                <li>You are granted a limited license for personal, non-commercial use.</li>
+                <li>You may not republish, sell, or sublicense material from the website.</li>
+                <li>You must not misuse the services or website content.</li>
+            </ul>
+        </section>
+
+        <section id="user-conduct" class="term-section">
+            <h2>3. User Conduct and Prohibitions</h2>
+            <p>You agree to use the website only for lawful purposes. Prohibited uses include transmitting unlawful material, interfering with security-related features, or reverse engineering any part of the site.</p>
+        </section>
+
+        <section id="disclaimer" class="term-section">
+            <h2>4. Disclaimer and Limitation of Liability</h2>
+            <p>The website is provided on an AS-IS and AS-AVAILABLE basis. We make no warranties, express or implied, regarding the operation of the website. We are not liable for any damages arising from your use of the website.</p>
+        </section>
+        
+        <section id="agreement-button" class="term-section acceptance-area" style="text-align: center;">
+            <p class="cta-prompt">Ready to proceed? Please confirm your acceptance.</p>
+            <button id="agree-btn" class="cta-button">I Agree to the Terms</button>
+            <p id="message" class="acceptance-message" style="display: none;"></p>
+        </section>
+
+        <section id="contact" class="term-section">
+            <h2>5. Contact Us</h2>
+            <p>For any questions regarding these Terms, please contact us at online-clothing-store-support@.com.</p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Your Website Name. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    // Get the button and the message element
+    const agreeButton = document.getElementById('agree-btn');
+    const message = document.getElementById('message');
+
+    if (agreeButton) {
+        agreeButton.addEventListener('click', function() {
+            // Change button appearance and state
+            this.textContent = 'Terms Accepted! 🎉';
+            this.style.backgroundColor = '#2ecc71'; // Success green
+            this.style.transform = 'none';
+            this.disabled = true; 
+
+            // Display the success message
+            message.textContent = 'Thank you for confirming. You may now proceed to use the website.';
+            message.style.color = '#2ecc71'; // Green text
+            message.style.display = 'block';
+
+            // In a real application, you would set a cookie or redirect the user here.
+            // Example: window.location.href = '/dashboard';
+        });
+    }
+});
+    </script> 
+</body>
+</html>

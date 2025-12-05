@@ -1,0 +1,125 @@
+/* grievance_style.css */
+
+:root {
+    --primary-color: #004d40; /* Deep Teal/Green for trust */
+    --accent-color: #2f8f89; 
+    --background-color: #f7f9fa; /* Light background */
+    --text-color: #333;
+    --border-color: #e0e0e0;
+    --shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--background-color);
+    padding: 20px;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.grievance-container {
+    max-width: 850px;
+    margin: 40px auto;
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+/* --- Header --- */
+.grievance-header {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 4px solid var(--accent-color);
+    margin-bottom: 30px;
+}
+
+.grievance-header h1 {
+    color: var(--primary-color);
+    font-size: 2.2em;
+    margin-bottom: 5px;
+}
+
+/* --- Policy Sections (Steps) --- */
+.policy-section {
+    margin-bottom: 30px;
+    border-left: 6px solid var(--primary-color);
+    padding-left: 20px;
+    transition: all 0.3s;
+}
+
+.policy-section:hover {
+    border-left-color: var(--accent-color); /* Highlight border on hover */
+}
+
+.policy-section h2 {
+    color: var(--accent-color);
+    font-size: 1.6em;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.info-box {
+    background-color: #fafafa;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+/* List Styling */
+.info-box ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+.info-box ul li {
+    background: url("data:image/svg+xml;charset=UTF-8,%3csvg viewBox='0 0 10 10' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='5' cy='5' r='3' fill='%23ff9800'/%3e%3c/svg%3e") no-repeat left 8px;
+    background-size: 8px;
+    padding-left: 15px;
+    margin-bottom: 8px;
+}
+
+.officer-details {
+    margin-top: 15px;
+    padding: 10px;
+    border: 1px dashed var(--accent-color);
+    background-color: #fffde7; /* Light yellow background */
+    border-radius: 4px;
+}
+
+.officer-details a {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.final-note {
+    font-style: italic;
+    color: #e53935; /* Red color for final emphasis */
+    font-weight: 600;
+}
+
+/* --- Footer --- */
+.contact-footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 600px) {
+    .grievance-container {
+        padding: 20px 15px;
+        margin: 20px 10px;
+    }
+
+    .grievance-header h1 {
+        font-size: 1.8em;
+    }
+
+    .policy-section h2 {
+        font-size: 1.3em;
+    }
+}

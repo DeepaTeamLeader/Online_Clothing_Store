@@ -1,0 +1,709 @@
+/* --- Reset --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #fdfdfd;
+}
+
+/* --- Navbar --- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2f8f89; /* dark green */
+  padding: 18px 40px;  
+}
+
+.active{
+  color: #3a9188;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+  flex-shrink: 0;
+  margin-right: 25px;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  padding: 10px 15px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  background-color: #61bdb2; /* light green hover */
+  border-radius: 5px;
+}
+
+/*---Search box*/
+
+.search-container {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  margin: 0 auto;
+  position: relative;    /* This is for dropdown*/
+}
+
+.search-box {
+  display: flex;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: white;
+}
+
+.search-box input[type="text"] {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+}
+
+.search-box button {
+  background: #61bdb2;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: background-color 0.3s;
+}
+
+
+.search-box button:hover {
+    background-color: #006666; /* Darker Teal */
+}
+
+
+/* --- Suggestions Dropdown Styling (NEW) --- */
+.suggestions-dropdown {
+    position: absolute;
+    top: 100%; /* Search box ke theek neeche */
+    left: 0;
+    right: 0;
+    z-index: 100; /* Ensure it appears above other content */
+    background-color: white;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    max-height: 300px;
+    overflow-y: auto; /* Agar suggestions zyada ho toh scrollbar aa jaye */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: none; /* By default, isko chhupa kar rakhte hain */
+}
+
+.suggestion-item {
+    padding: 10px 15px;
+    text-align: left;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    color: var(--text-color);
+}
+
+.suggestion-item:last-child {
+    border-bottom: none;
+}
+
+.suggestion-item:hover {
+    background-color: var(--light-gray); /* Light Gray background on hover */
+}
+
+
+
+
+/* --- Dropdown --- */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;  /* dropdown white */
+  min-width: 160px;
+  list-style: none;
+  border-radius: 5px;
+  margin-top: 5px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 999;
+}
+
+.dropdown-content li {
+  width: 100%;
+}
+
+.dropdown-content li:last-child {
+  border-bottom: none;
+}
+
+.dropdown-content a {
+  color: #333;
+  display: block;
+  text-decoration: none;
+  font-size: 15px;
+  padding: 10px 15px;
+}
+
+.dropdown-content a:hover {
+  background-color: #2f8f89; /* green hover */
+  color: white;
+  border-radius: 0;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Dropdown container */
+
+
+/* Dropdown style */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+
+
+
+
+
+/* --- Mobile --- */
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #2f8f89;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 220px;
+    padding: 15px 0;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+    margin: 0;
+    border-radius: 0;
+  }
+}
+/* Dropdown */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;  
+  left: 0;
+  background: #fff;
+  min-width: 160px;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+  border-radius: 5px;
+}
+
+.dropdown-content li {
+  list-style: none;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.dropdown-content a:hover {
+  background: #3a9188 ;
+  color: #fff;
+}
+
+/* Show on Hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+
+
+/* This CSS targets all <a> links inside the <footer> element */
+
+/* 1. Normal and Visited States: Removes purple/blue color and underline */
+footer a:link,
+footer a:visited {
+    /* Sets link color to dark gray/black (adjust color code if needed) */
+    color: #333333; 
+    
+    /* Removes the underline */
+    text-decoration: none; 
+}
+
+/* 2. Hover State: Defines how the link looks when the mouse is over it */
+footer a:hover {
+    /* Optional: Change color on hover for visual feedback */
+    color: #3a9188; 
+    
+    /* Optional: Add a subtle underline back on hover */
+    text-decoration: underline; 
+}
+
+/* 3. Active State: Defines how the link looks while being clicked */
+footer a:active {
+    color: #286861; /* A slightly darker blue */
+}
+
+
+
+
+.nav-button {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.nav-button:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Profile Dropdown Container*/ 
+.auth-dropdown {
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+/* Profile Dropdown Content */
+.dropdown-content-profile {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
+    z-index: 20;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.dropdown-content-profile a {
+    color: #333;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.dropdown-content-profile a:hover {
+    background-color: #e6fffa; /* Light green hover */
+}
+
+.auth-dropdown.show .dropdown-content-profile {
+    display: block;
+}
+
+/* --- Modal Styling --- */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000; /* Very high z-index to cover everything */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7); /* Dark semi-transparent background */
+}
+
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%; 
+    max-width: 400px; /* Attractive size */
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+/* Modal Tab Styling */
+
+.modal-header {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 25px;
+}
+
+.tab-button {
+    flex-grow: 1;
+    padding: 10px 10px;
+    border: none;
+    background: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: #718096;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+
+
+.tab-button.active {
+    color: #38a169; /* Primary Green */
+    border-bottom: 3px solid #38a169;
+}
+
+/* Form Inputs and Button */
+
+.auth-form h3 {
+    text-align: center;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.auth-form input:focus {
+    border-color: #38a169;
+    box-shadow: 0 0 5px rgba(56, 161, 105, 0.4);
+    outline: none;
+}
+
+.submit-btn {
+    width: 100%;
+    background-color: #38a169;
+    color: white;
+    padding: 14px 20px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #2f855a; /* Darker green on hover */
+}
+
+/* Responsive adjustments for Navbar if needed */
+
+@media (max-width: 768px) {
+    .nav-button {
+        padding: 6px 10px;
+        font-size: 13px;
+        width: 100%; /* Full width on small screens */
+    }
+}
+
+
+
+/* --- Reviews Section Styling --- */
+
+.reviews-section {
+    padding: 60px 20px;
+    background-color: var(--secondary-color); /* White background */
+    text-align: center;
+}
+
+.reviews-section h2 {
+    color: var(--primary-color); /* Teal Green heading */
+    margin-bottom: 40px;
+    font-size: 2em;
+}
+
+.reviews-carousel-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.reviews-carousel {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 30px;
+    padding: 10px 0;
+}
+
+/* Hide scrollbar for review carousel */
+.reviews-carousel::-webkit-scrollbar {
+    display: none;
+}
+.reviews-carousel {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* --- Individual Review Card --- */
+
+.review-card {
+    flex: 0 0 300px; /* Show about 3 cards on desktop */
+    background-color: var(--light-gray); /* Light gray for review box */
+    border-radius: 12px;
+    padding: 25px;
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    scroll-snap-align: start;
+}
+
+.review-rating {
+    color: #ffd700; /* Gold stars */
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+.review-text {
+    font-style: italic;
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.reviewer-name {
+    font-weight: bold;
+    color: var(--primary-color); /* Teal Green name */
+    font-size: 1.1em;
+}
+
+.review-date {
+    font-size: 0.8em;
+    color: #888;
+}
+
+/* --- Review Navigation Buttons --- */
+
+.review-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--primary-color); /* Teal Green background */
+    color: var(--secondary-color);
+    border: none;
+    padding: 12px 18px;
+    cursor: pointer;
+    z-index: 20;
+    border-radius: 50%;
+    font-size: 1.2em;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+.review-nav-btn:hover, .review-nav-btn:focus {
+    background-color: #005f5f; /* Darker Teal Green on hover (Active Look) */
+    opacity: 1;
+    box-shadow: 0 0 10px rgba(0, 128, 128, 0.7);
+}
+
+.prev-review-btn {
+    left: -20px;
+}
+
+.next-review-btn {
+    right: -20px;
+}
+
+
+
+
+/* --- Value Proposition Variables (Use same as previous sections) --- */
+:root {
+    --primary-color: #008080; /* Teal Green */
+    --secondary-color: #FFFFFF; /* White */
+    --text-color: #333;
+    --light-gray: #f9f9f9;
+}
+
+/* --- Value Proposition Section Styling --- */
+.value-proposition-section {
+    padding: 30px 20px;
+    background-color: var(--secondary-color); /* White background */
+    border-bottom: 1px solid #eee;
+}
+
+.value-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+/* --- Individual Value Card Styling --- */
+.value-card {
+    display: flex;
+    align-items: center;
+    flex-basis: 22%; /* Ensures 4 cards fit neatly on desktop */
+    min-width: 200px; /* Minimum width for mobile responsiveness */
+    padding: 15px;
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-3px);
+}
+
+.value-icon {
+    font-size: 2.5em; /* Large icon size */
+    color: var(--primary-color); /* Teal Green icon */
+    margin-right: 15px;
+    /* Optional: Icon animation on hover */
+    transition: color 0.3s ease;
+}
+
+.value-card:hover .value-icon {
+    color: #004d4d; /* Darker teal on hover */
+}
+
+.value-details h4 {
+    margin: 0 0 5px 0;
+    font-size: 1.1em;
+    color: var(--text-color);
+    font-weight: 700;
+}
+
+.value-details p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .value-container {
+        justify-content: center;
+    }
+    .value-card {
+        flex-basis: 45%; /* Show 2 cards per row on tablet */
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .value-card {
+        flex-basis: 100%; /* Show 1 card per row on mobile */
+        justify-content: center;
+        text-align: center;
+    }
+    .value-icon {
+        margin-right: 10px;
+    }
+    .value-card .value-details {
+        flex: 1; /* Take up remaining space */
+        min-width: 150px;
+    }
+}
+
+
+/* --- Add this to your style.css --- */
+
+/* Style for the clickable support card */
+.value-card.clickable-support {
+    cursor: pointer;
+    border: 2px solid var(--primary-color); /* Highlight border */
+    background-color: var(--light-gray);
+}
+
+.value-card.clickable-support:hover {
+    transform: translateY(-5px) scale(1.02); /* More noticeable hover effect */
+    box-shadow: 0 5px 15px rgba(0, 128, 128, 0.2);
+}
+
+/* --- Responsive Design for Reviews --- */
+@media (max-width: 900px) {
+    .review-card {
+        flex: 0 0 45%; /* Show 2 cards on tablet */
+    }
+}
+
+@media (max-width: 600px) {
+    .review-card {
+        flex: 0 0 95%; /* Show 1 card on mobile */
+    }
+    .prev-review-btn, .next-review-btn {
+        top: calc(50% + 10px); /* Adjust position slightly */
+    }
+}

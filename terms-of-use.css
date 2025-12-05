@@ -1,0 +1,122 @@
+/* General Styling and Typography */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+    background-color: #eef2f5; /* Light, cool background */
+    color: #333;
+}
+
+.terms-container {
+    max-width: 950px;
+    margin: 40px auto;
+    padding: 30px 40px;
+    background-color: #fffdfd; /* Main content background */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    border-radius: 12px;
+}
+
+/* Header Styling */
+header {
+    background-color:#2f8f89; /* Dark, professional primary color */
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 12px 12px 0 0;
+}
+
+header h1 {
+    margin-top: 0;
+    font-size: 3em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+header p {
+    font-style: italic;
+    opacity: 0.8;
+    font-size: 1.1em;
+}
+
+/* Section Styling */
+.term-section {
+    padding: 25px 0;
+    border-bottom: 1px dashed #cccccc; /* Dashed line for visual break */
+}
+
+.term-section:last-of-type {
+    border-bottom: none; 
+}
+
+/* Section Headings */
+.term-section h2 {
+    color: #2f8f89; /* Striking secondary color (Red) for emphasis */
+    font-size: 1.8em;
+    border-left: 6px solid #1a736f; /* Blue accent bar */
+    padding-left: 15px;
+    margin-bottom: 20px;
+}
+
+/* Lists and paragraphs */
+.term-section ul {
+    list-style-type: '👉'; /* Custom bullet point */
+    margin-left: 0;
+    padding-left: 30px;
+}
+
+.term-section li {
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
+
+/* CTA Button Styling */
+.acceptance-area {
+    background-color: #f7f9fb;
+    padding: 30px;
+    border-radius: 8px;
+    margin-top: 30px;
+    border: 1px solid #ddd;
+}
+
+.cta-prompt {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    background-color: #2f8f89; /* Primary blue button */
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 50px; /* Pill shape */
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, transform 0.1s;
+}
+
+.cta-button:hover {
+    background-color: #339d98; /* Darker blue on hover */
+    transform: translateY(-3px); /* Lift effect */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.acceptance-message {
+    font-weight: bold;
+    margin-top: 15px;
+    font-size: 1.1em;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 25px;
+    margin-top: 50px;
+    color: #777;
+    font-size: 0.9em;
+    border-top: 2px solid #ecf0f1;
+}

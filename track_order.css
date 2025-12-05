@@ -1,0 +1,196 @@
+/* --- Global Styles for Consistency (Assuming from previous response) --- */
+body {
+    font-family: 'Rubik', sans-serif;
+    margin: 0;
+    padding: 0;
+    /* रंगीन ग्रेडिएंट बैकग्राउंड */
+    background: linear-gradient(135deg, #e0f2f1 0%, #fce4ec 100%); 
+    color: #333;
+    line-height: 1.7;
+}
+
+/* --- Track Order Page Styling --- */
+
+/* Header (Teal color) */
+.track-header {
+    background-color: #008080; 
+    padding: 30px 0;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.track-header h1 {
+    font-size: 32px;
+    margin: 0 0 5px 0;
+}
+
+/* Container */
+.track-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Styling */
+.tracking-form-section {
+    padding: 20px;
+    border: 2px dashed #2f8f89; /* Coral dashed border */
+    border-radius: 10px;
+    margin-bottom: 30px;
+    background-color: #fffafa;
+}
+
+.input-label {
+    display: block;
+    font-weight: 600;
+    color: #004d4d;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+.input-group input {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #2f8f89; /* Coral focus */
+    outline: none;
+}
+
+.track-btn {
+    padding: 12px 25px;
+    background-color: #2f8f89; /* Coral */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.track-btn:hover {
+    background-color: #5dbcb6;
+    transform: translateY(-1px);
+}
+
+.form-help {
+    font-size: 13px;
+    color: #777;
+    margin-top: 10px;
+}
+
+/* Status Display */
+.order-id-title {
+    color: #004d4d;
+    font-size: 22px;
+    border-bottom: 2px solid #008080;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+/* --- Timeline/Progress Bar --- */
+.tracking-timeline {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 40px;
+    padding-top: 10px;
+}
+
+/* Timeline Static Gray Line */
+.tracking-timeline::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: #ccc;
+    z-index: 1;
+}
+
+/* Timeline Dynamic Line Fill */
+.tracking-timeline .line-fill {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    height: 4px;
+    background-color: #2f8f89; /* Coral filled line */
+    z-index: 1;
+    width: 0; /* JS द्वारा बदला जाएगा */
+    transition: width 0.5s ease;
+}
+
+.timeline-step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    transition: all 0.5s;
+}
+
+.step-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    border: 3px solid #ccc;
+    border-radius: 50%;
+    margin: 0 auto 10px auto;
+    line-height: 34px;
+    font-size: 20px;
+    color: #777;
+    transition: all 0.5s;
+}
+
+/* Active Step Styling */
+.timeline-step.active .step-icon {
+    background-color: #008080; /* Teal active background */
+    border-color: #008080;
+    color: white;
+    box-shadow: 0 0 0 5px rgba(0, 128, 128, 0.2);
+}
+
+/* Detail Card */
+.detail-card {
+    padding: 20px;
+    background-color: #f7fcfc;
+    border-left: 5px solid #2f8f89; /* Coral accent */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.detail-card h3 {
+    color: #2f8f89;
+    margin-top: 0;
+}
+
+.help-link {
+    color: #008080;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Error Message */
+.error-message {
+    padding: 15px;
+    background-color: #ffe0e0;
+    border: 1px solid #2f8f89;
+    color: #2f8f89;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+}

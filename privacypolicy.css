@@ -1,0 +1,119 @@
+/* privacy_style.css */
+
+:root {
+    --primary-color: #2f8f89; 
+    --accent-color: #2f8f89; /* Light Blue/Cyan */
+    --background-color: #f0f4f8; /* Very light blue background */
+    --text-color: #37474f;
+    --border-color: #e0e0e0;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    padding: 20px;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.policy-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+/* --- Header & Intro --- */
+.policy-header {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 3px solid var(--accent-color);
+    margin-bottom: 30px;
+}
+
+.policy-header h1 {
+    color: var(--primary-color);
+    font-size: 2.5em;
+    margin-bottom: 5px;
+}
+
+.policy-intro {
+    font-size: 1.1em;
+    margin-bottom: 40px;
+    padding: 15px;
+    background-color: #e3f2fd; /* Lightest blue for background */
+    border-left: 5px solid var(--accent-color);
+    border-radius: 5px;
+}
+
+/* --- Main Grid Layout (Responsiveness) --- */
+.policy-grid {
+    display: grid;
+    /* Two columns for desktop view */
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.policy-section {
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: #ffffff;
+    transition: all 0.3s;
+}
+
+.policy-section:hover {
+    box-shadow: 0 0 10px rgba(43, 87, 91, 0.5); /* Subtle hover glow */
+}
+
+.policy-section h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+/* List Styling */
+.policy-section ul, .policy-section ol {
+    padding-left: 20px;
+    margin-top: 15px;
+}
+
+.policy-section li {
+    margin-bottom: 8px;
+}
+
+/* Contact Footer */
+.policy-contact {
+    clear: both;
+    margin-top: 40px;
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.policy-contact a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.policy-contact a:hover {
+    text-decoration: underline;
+}
+
+/* --- Mobile Responsiveness (Single Column) --- */
+@media (max-width: 800px) {
+    .policy-container {
+        padding: 20px;
+        margin: 20px 10px;
+    }
+
+    /* Stack sections into a single column on small screens */
+    .policy-grid {
+        grid-template-columns: 1fr;
+    }
+}

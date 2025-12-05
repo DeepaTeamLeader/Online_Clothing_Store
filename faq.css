@@ -1,0 +1,95 @@
+/* style.css */
+
+:root {
+    --primary-color: #2f8f89; 
+    --secondary-color: #2f8f89; 
+    --background-color: #f4f4f9; /* Light Grey/Off-White background */
+    --border-color: #e0e0e0; /* Light border */
+    --text-color: #444;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 15px;
+}
+
+.faq-item {
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden; /* Important for animation */
+    transition: box-shadow 0.3s ease;
+}
+
+.faq-item:hover {
+    box-shadow: 0 0 10px rgba(255, 111, 97, 0.3); /* Subtle hover glow */
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    border-radius: 8px 8px 0 0;
+}
+
+.faq-question h3 {
+    margin: 0;
+    font-size: 1.1em;
+}
+
+.faq-toggle-icon {
+    font-size: 1.5em;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+/* Style for the active (open) question */
+.faq-item.active .faq-question {
+    background-color: var(--secondary-color);
+}
+
+.faq-item.active .faq-toggle-icon {
+    transform: rotate(45deg); /* Change '+' to 'X' */
+}
+
+.faq-answer {
+    background-color: #ffffff;
+    padding: 0 20px;
+    max-height: 0; /* Starts hidden */
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px; /* Adjust based on content size */
+    padding: 15px 20px 20px 20px;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-color);
+}
+
+.faq-answer p {
+    margin: 0;
+}

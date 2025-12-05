@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bhama Ethnic -Suit</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  
+  <style>
+    /* CSS adapted from bhuma1product.html */
+    :root {
+        --primary-teal: #008080; /* Teal for primary color */
+    }
+
+    body {
+        font-family: 'Quicksand', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f8f8;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 5%;
+        border-bottom: 1px solid #eee;
+        background-color: #fff;
+    }
+
+    .detail-container {
+        display: flex;
+        max-width: 1200px;
+        margin: 30px auto;
+        padding: 0 5%;
+        gap: 40px;
+    }
+
+    .image-gallery {
+        flex: 1;
+        max-width: 50%;
+    }
+
+    #mainImage {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .thumbs {
+        display: flex; 
+        gap: 10px; 
+        margin-top: 15px;
+    }
+    
+    .thumbs img {
+        width: 80px; 
+        height: 80px; 
+        object-fit: cover; 
+        border: 1px solid #ddd; 
+        cursor: pointer;
+        border-radius: 4px;
+    }
+
+    .info-panel {
+        flex: 1;
+        max-width: 50%;
+    }
+
+    .product-title {
+        font-size: 2.2rem;
+        color: #333;
+        margin-top: 0;
+    }
+    
+    .price-large {
+        font-size: 2.5em;
+        color: #333;
+        font-weight: 700;
+        margin: 10px 0;
+    }
+    
+    .price-large .old {
+        font-size: 0.5em; 
+        color: #999; 
+        text-decoration: line-through;
+    }
+    
+    .price-large .off {
+        font-size: 0.5em; 
+        color: var(--primary-teal);
+    }
+    
+    .size-selector button {
+        background-color: #fff;
+        color: #333;
+        border: 1px solid #ccc;
+        padding: 10px 15px;
+        margin-right: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: all 0.2s;
+        min-width: 50px;
+        font-size: 1em;
+    }
+
+    .size-selector button.selected {
+        background-color: var(--primary-teal);
+        color: #ffffff;
+        border-color: var(--primary-teal);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    
+    .action-buttons {
+        display: flex;
+        gap: 15px;
+        margin-top: 30px;
+    }
+
+    .action-buttons button {
+        padding: 15px 30px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1.1em;
+        font-weight: 700;
+        transition: background-color 0.2s;
+        flex: 1;
+    }
+
+    .add-to-bag-btn {
+        background-color: var(--primary-teal);
+        color: #ffffff;
+    }
+    
+    .buy-now-btn {
+        background-color: #fff;
+            color: var(--primary-teal);
+            border: 2px solid var(--primary-teal);
+    }
+
+    .buy-now-btn:hover {
+        background-color: #e0f0f0;
+    }
+
+    .add-to-bag-btn:hover {
+        background-color: #006666;
+    }
+    
+    /* Retained from original file */
+    .product-details-section ul {
+        list-style: disc;
+        margin-left: 20px;
+    }
+
+  </style>
+
+</head>
+<body>
+
+  <header>
+    <a href="brand5.html" style="text-decoration: none; color: var(--primary-teal, #008080); font-size: 1.5rem">&larr; Back to Products</a>
+    <h2 style="color: var(--primary-teal);">Online Clothing Store</h2>
+  </header>
+
+  <main class="detail-container">
+    <div class="image-gallery">
+      <img id="mainImage" src="images/bhama-floral-main-img.png" alt="Purple-Suit">
+      <div class="thumbs">
+        <img src="images/bhama-floral-main-img.png" onclick="changeImage(this)" alt="Image 1">
+        <img src="images/bhama-floral-img1.png" onclick="changeImage(this)" alt="Image 2">
+        <img src="images/bhama-floral-img2.png" onclick="changeImage(this)" alt="Image 3">
+        <img src="images/bhama-floral-img3.png" onclick="changeImage(this)" alt="Image 4">
+        <img src="images/bhama-floral-img4.png" onclick="changeImage(this)" alt="Image 5">
+      </div>
+    </div>
+
+    <div class="info-panel">
+      <h1 class="product-title">Jennifer Winget Floral Embroidered Anarkali Kurta With Palazzos & Dupatta</h1>
+      <p style="color: #666; font-size: 1.2em;">Brand: Bhama Corture</p>
+      
+      <p class="price-large">₹1839 <span class="old">₹5999</span> <span class="off">(69% OFF)</span></p>
+      <p style="font-size: 0.9em; color: #666;">inclusive of all taxes</p>
+
+      <h3 style="margin-top: 25px;">📏 Select Size</h3>
+      <div class="size-selector">
+        <button data-size="S">S</button>
+        <button data-size="M">M</button>
+        <button data-size="L">L</button>
+        <button data-size="XL">XL</button>
+      </div>
+
+      <div class="action-buttons">
+        <form id="add-to-bag-form" action="add_to_bag_ethnic.php" method="POST" style="flex: 1;">
+            <input type="hidden" name="product_id" value="BHAMA_FLORAL_EMB_KURTA_1839">
+            <input type="hidden" name="product_name" value="Jennifer Winget Floral Embroidered Kurta Set">
+            <input type="hidden" name="product_price" value="1839">
+            <input type="hidden" name="selected_size" id="input-selected-size-5">
+            <button id="add-to-bag-btn-5" type="submit" class="add-to-bag-btn">ADD TO BAG</button>
+        </form>
+        
+        <button class="buy-now-btn" id="buy-now-redirect-5">BUY NOW</button>
+      </div>
+    
+      <h3 style="margin-top: 30px;">🚚 Delivery Options</h3>
+      <div class="delivery-options" style="font-size: 0.95em; color: #333;">
+        <p>📦 Get it by <strong>Sat 20 Dec</strong></p>
+        <p>💵 Pay on delivery available</p>
+        <p>↩️ Easy 7 days return & exchange available</p>
+        <small style="color: green;">100% Original Products</small>
+      </div>
+
+      <div class="product-details-section">
+        <h3 style="margin-top: 20px;">ℹ️ PRODUCT DETAILS</h3>
+
+        <span class="product-name">Off white, pink & green embroidered Kurta with Palazzos</span>
+
+        <h4 style="margin-top: 15px;">Kurta design:</h4>
+        <ul>
+            <li>Floral embroidered</li>
+            <li>Anarkali shape</li>
+            <li>Panelled style</li>
+            <li>V-neck, three-quarter regular sleeves</li>
+            <li>Calf length with flared hem</li>
+            <li>Cotton blend machine weave fabric</li>
+        </ul>
+
+        <h4 style="margin-top: 15px;">Palazzos design:</h4>
+        <ul>
+            <li>Solid Palazzos</li>
+            <li>Elasticated waistband</li>
+            <li>Slip-on closure</li>
+        </ul>
+
+        <h4 style="margin-top: 15px;">Dupatta design:</h4>
+        <ul>
+            <li>Solid pattern</li>
+            <li>Taping border</li>
+        </ul>
+
+        <h4 style="margin-top: 15px;">Size & Fit</h4>
+        <p>The model (height 5'8) is wearing a size S</p>
+
+        <h4 style="margin-top: 15px;">Material & Care</h4>
+        <ul>
+            <li><span style="font-weight: bold;">Top:</span> Cotton Blend</li>
+            <li><span style="font-weight: bold;">Bottom:</span> Cotton Blend</li>
+            <li><span style="font-weight: bold;">Dupatta:</span> Poly Chiffon</li>
+            <li><span style="font-weight: bold;">Care:</span> Machine wash</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+
+  <script>
+    function changeImage(smallImg) {
+      let mainImg = document.getElementById("mainImage");
+      mainImg.src = smallImg.src;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        const sizeButtons = document.querySelectorAll('.size-selector button'); 
+        const hiddenSizeInput = document.getElementById('input-selected-size-5'); 
+        const addToBagForm = document.getElementById('add-to-bag-form');
+        const buyNowBtn = document.getElementById('buy-now-redirect-5'); 
+        
+        let selectedSize = null; 
+        
+        sizeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                
+                sizeButtons.forEach(btn => {
+                    btn.classList.remove('selected'); 
+                });
+
+                this.classList.add('selected');
+
+                selectedSize = this.textContent.trim(); 
+                hiddenSizeInput.value = selectedSize; 
+            });
+        });
+
+        addToBagForm.addEventListener('submit', function(event) {
+            
+            if (selectedSize === null || selectedSize === '') {
+                event.preventDefault(); 
+                alert("Please select a size (S, M, L, or XL) before adding to bag.");
+            }
+        });
+
+        buyNowBtn.addEventListener('click', function() {
+            if (selectedSize === null || selectedSize === '') {
+                alert("Please select a size before proceeding to Buy Now.");
+                return;
+            }
+            window.location.href = "checkout.php?quickbuy=true&product_id=BHAMA_FLORAL_EMB_KURTA_1839&size=" + selectedSize;
+        });
+        
+    });
+  </script>
+</body>
+</html>

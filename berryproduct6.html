@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BERRYLUSH Floral Tiered Dress - Product Detail</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS specific to this new file, replicated from berryproduct2.html */
+        :root {
+            --primary-teal: #008080;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            border-bottom: 1px solid #eee;
+            background-color: #fff;
+        }
+
+        .detail-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 5%;
+            gap: 40px;
+        }
+
+        .image-gallery {
+            flex: 1;
+            max-width: 50%;
+        }
+
+        .main-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-panel {
+            flex: 1;
+            max-width: 50%;
+        }
+
+        .product-title {
+            font-size: 2.2rem;
+            color: #333;
+            margin-top: 0;
+        }
+
+        .price-large {
+            font-size: 2.5em;
+            color: #333;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+
+        .size-selector button {
+            background-color: #fff;
+            color: #333;
+            border: 1px solid #ccc;
+            padding: 10px 15px;
+            margin-right: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.2s;
+            min-width: 50px;
+            font-size: 1em;
+        }
+
+        .size-selector button.selected {
+            background-color: var(--primary-teal);
+            color: #ffffff;
+            border-color: var(--primary-teal);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .add-to-cart-btn, .buy-now-btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 700;
+            transition: background-color 0.2s;
+            flex: 1;
+        }
+
+        .add-to-cart-btn {
+            background-color: var(--primary-teal);
+            color: #ffffff;
+        }
+
+        .buy-now-btn {
+            background-color: #fff;
+            color: var(--primary-teal);
+            border: 2px solid var(--primary-teal);
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #006666;
+        }
+
+        .buy-now-btn:hover {
+            background-color: #e0f0f0;
+        }
+        
+        /* Ensure ul has proper spacing */
+        .product-details-section ul {
+            list-style: disc;
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .delivery-options strong {
+            color: var(--primary-teal);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .detail-container {
+                flex-direction: column;
+            }
+            .image-gallery, .info-panel {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="brand3.html" style="text-decoration: none; color: var(--primary-teal, #008080); font-size: 1.5rem">&larr; Back to Products</a>
+        <div style="display: flex;">
+            <a href="cart.php" id="cart-icon-link" style="
+                position: relative; 
+                text-decoration: none; 
+                font-size: 1.5em; 
+                padding: 8px 12px; 
+                border-radius: 5px;
+                background-color: var(--primary-teal, #008080); 
+                color: #ffffff; 
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            ">
+                &#x1F6D2; <span id="cart-count-badge" style="
+                    position: absolute;
+                    top: -5px;
+                    right: -5px;
+                    background-color: red; 
+                    color: white;
+                    font-size: 0.6em;
+                    padding: 2px 5px;
+                    border-radius: 50%;
+                    line-height: 1;
+                ">0</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="detail-container">
+        
+        <div class="image-gallery">
+            <img id="mainImage" src = "images/berry6.png" class="main-image" alt="Floral Tiered Dress">
+            <div class="thumbs" style="display: flex; gap: 10px; margin-top: 15px;">
+                <img src="images/berry6.png" onclick="changeImage(this)" style="width: 80px; height: 80px; object-fit: cover; border: 1px solid #ddd; cursor: pointer;">
+                <img src="images/berry6.1.png" onclick="changeImage(this)" style="width: 80px; height: 80px; object-fit: cover; border: 1px solid #ddd; cursor: pointer;">
+                <img src="images/berry6.2.png" onclick="changeImage(this)" style="width: 80px; height: 80px; object-fit: cover; border: 1px solid #ddd; cursor: pointer;">
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <h1 class="product-title">Floral Tiered Dress</h1>
+            <p style="color: #666; font-size: 1.2em;">Women Classic White Floral Tiered Dress</p>
+            
+            <p class="price-large">₹1845 <span class="old" style="font-size: 0.5em; color: #999; text-decoration: line-through;">₹1999</span> <span class="off" style="font-size: 0.5em; color: #008080;">(33% OFF)</span></p>
+            <p style="font-size: 0.9em; color: #666;">inclusive of all taxes</p>
+
+            <h3 style="margin-top: 25px;">📏 Select Size</h3>
+            <div class="size-selector">
+                <button>S</button>
+                <button>M</button>
+                <button>L</button>
+                <button>XL</button>
+            </div>
+
+            <div class="action-buttons">
+                <form id="add-to-cart-form" action="add_to_bag.php" method="POST">
+                    <input type="hidden" name="product_id" value="BERRYLUSH_TIERED_1845">
+                    <input type="hidden" name="product_name" value="Floral Tiered Dress">
+                    <input type="hidden" name="product_price" value="1845">
+                    <input type="hidden" name="selected_size" id="input-selected-size"> 
+                    
+                    <button id="add-to-cart-btn" type="submit" class="add-to-cart-btn">ADD TO BAG</button>
+                </form>
+
+                <button class="buy-now-btn" id="buy-now-redirect">BUY NOW</button>
+                <button class="buy-now-btn" id="wishlist-btn">Wishlist</button>
+            </div>
+            
+            <h3 style="margin-top: 30px;">🚚 Delivery & Product Information</h3>
+            <div class="delivery-options" style="font-size: 0.95em; color: #333;">
+                <p>📦 Get it by <strong>Sat, Dec 20</strong></p>
+                <p>💵 Pay on delivery available</p>
+                <p>↩️ Easy 7 days return & exchange available</p>
+                <small style="color: green;">100% Original Products</small>
+            </div>
+
+            <div class="product-details-section">
+                <h3 style="margin-top: 20px;">ℹ️ PRODUCT DETAILS</h3>
+                <ul>
+                    <li>Classic white shade, Beautiful floral print</li>
+                    <li>Shoulder straps, Short cold-shoulder sleeves</li>
+                    <li>Surface Styling: Layered</li>
+                </ul>
+                
+                <h4 style="margin-top: 15px;">Size & Material Specifications</h4>
+                <div class="specs" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.9em;">
+                    <div><strong>Model Size</strong><br>5.6' wears size L</div>
+                    <div><strong>Shape</strong><br>Maxi</div>
+                    <div><strong>Length</strong><br>Maxi</div>
+                    <div><strong>Sleeve Styling</strong><br>Cold-Shoulder Sleeves</div>
+                    <div><strong>Top Fabric</strong><br>Pure Cotton (Original data used)</div>
+                    <div><strong>Bottom Fabric</strong><br>Pure Cotton (Original data used)</div>
+                    <div><strong>Material</strong><br>Polyester</div>
+                    <div><strong>Care</strong><br>Machine Wash</div>
+                </div>
+
+                <h4 style="margin-top: 15px;">Complete this look</h4>
+                <p>The print later caught on during the 60s Bohemian movement and has been in vogue ever since.</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Image gallery function
+        function changeImage(smallImg) {
+            let mainImg = document.getElementById("mainImage");
+            mainImg.src = smallImg.src;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- 1. Element Declarations ---
+            const sizeButtons = document.querySelectorAll('.size-selector button'); 
+            const hiddenSizeInput = document.getElementById('input-selected-size'); 
+            const addToBagForm = document.getElementById('add-to-cart-form'); 
+            const buyNowBtn = document.getElementById('buy-now-redirect'); 
+            
+            let selectedSize = null; 
+            
+            
+            // --- 2. Size Selection & Data Update Logic ---
+            sizeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    
+                    // Visual Logic
+                    sizeButtons.forEach(btn => {
+                        btn.classList.remove('selected'); 
+                    });
+                    this.classList.add('selected');
+
+                    // Data Logic
+                    selectedSize = this.textContent.trim(); 
+                    hiddenSizeInput.value = selectedSize; 
+                });
+            });
+
+
+            // --- 3. ADD TO BAG/FORM Submission Logic ---
+            addToBagForm.addEventListener('submit', function(event) {
+                
+                if (selectedSize === null || selectedSize === '') {
+                    event.preventDefault(); 
+                    alert("Please select a size (S, M, L, or XL) before adding to bag.");
+                    return;
+                }
+            });
+
+
+            // --- 4. BUY NOW Logic ---
+            buyNowBtn.addEventListener('click', function() {
+                if (selectedSize === null || selectedSize === '') {
+                    alert("Please select a size before proceeding to Buy Now.");
+                    return;
+                }
+                
+                // Redirects to checkout.php with product details and size in the URL
+                window.location.href = "checkout.php?quickbuy=true&product_id=BERRYLUSH_TIERED_1845&size=" + selectedSize;
+            });
+            
+             // --- 5. Wishlist Logic ---
+            document.getElementById('wishlist-btn').addEventListener('click', function() {
+                 alert("Item added to Wishlist!");
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Gift Card Creator</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles not easily represented by simple Tailwind or to handle complex states/transitions */
+        .aspect-card {
+            aspect-ratio: 1.6 / 1;
+        }
+        .animate-in {
+            animation: fadeIn 0.3s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-100 antialiased font-sans">
+
+    <div id="app" class="py-12 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl font-bold mb-2 text-gray-800">Digital Gift Card</h1>
+                <p class="text-gray-600">Create a beautiful gift card in seconds</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Gift Card Preview and Actions -->
+                <div class="flex flex-col gap-6">
+                    <!-- Gift Card Preview -->
+                    <div id="gift-card-preview" class="bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 rounded-3xl p-8 shadow-2xl aspect-card relative overflow-hidden transition-all duration-300">
+                        <!-- Decorative circles -->
+                        <div class="absolute top-0 right-0 w-40 h-40 bg-white opacity-10 rounded-full -mr-20 -mt-20"></div>
+                        <div class="absolute bottom-0 left-0 w-32 h-32 bg-white opacity-10 rounded-full -ml-16 -mb-16"></div>
+                        <div class="absolute top-1/2 left-1/2 w-64 h-64 bg-white opacity-5 rounded-full -ml-32 -mt-32"></div>
+
+                        <!-- Content -->
+                        <div class="relative z-10 h-full flex flex-col justify-between">
+                            <!-- Header -->
+                            <div>
+                                <div class="flex items-center gap-3 text-white mb-2">
+                                    <!-- Gift Icon (Placeholder for Lucide: Gift) -->
+                                    <span class="w-10 h-10 flex items-center justify-center bg-white/20 rounded-full text-2xl">🎁</span>
+                                    <span class="text-3xl font-semibold">Gift Card</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-white/90">
+                                    <!-- Sparkles Icon (Placeholder for Lucide: Sparkles) -->
+                                    <span class="text-xl">✨</span>
+                                    <span>Redeemable for anything</span>
+                                </div>
+                            </div>
+
+                            <!-- Amount -->
+                            <div>
+                                <div class="text-white/80 mb-2">Card Value</div>
+                                <div id="card-amount-display" class="text-white text-6xl font-bold">$100</div>
+                            </div>
+
+                            <!-- Card Code -->
+                            <div class="bg-white/20 backdrop-blur-sm rounded-xl px-6 py-3 border border-white/30">
+                                <div class="text-white/80 text-sm mb-1">Gift Card Code</div>
+                                <div id="card-code-display" class="text-white text-xl tracking-widest">GC00000000</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Message Card -->
+                    <div id="message-card" class="bg-white rounded-2xl p-6 shadow-lg hidden">
+                        <div id="recipient-display" class="mb-3 hidden">
+                            <span class="text-gray-500">To: </span>
+                            <span class="text-gray-900 font-medium"></span>
+                        </div>
+                        <div id="message-display" class="mb-3 p-4 bg-gray-50 rounded-lg italic text-gray-700 hidden">
+                            ""
+                        </div>
+                        <div id="sender-display" class="hidden">
+                            <span class="text-gray-500">From: </span>
+                            <span class="text-gray-900 font-medium"></span>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="space-y-3">
+                        <button id="buy-now-btn"
+                            class="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-4 rounded-xl hover:from-green-700 hover:to-emerald-700 transition-all shadow-lg text-xl font-bold"
+                        >
+                            💰 Buy Now - $100
+                        </button>
+                        <div class="flex gap-3">
+                            <button id="download-btn" class="flex-1 bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700 transition-colors flex items-center justify-center gap-2 shadow-lg">
+                                <!-- Download Icon (Placeholder for Lucide: Download) -->
+                                <span class="text-xl">⬇️</span>
+                                Download
+                            </button>
+                            <button id="share-btn" class="flex-1 bg-gray-600 text-white py-3 rounded-xl hover:bg-gray-700 transition-colors flex items-center justify-center gap-2 shadow-lg">
+                                <!-- Share2 Icon (Placeholder for Lucide: Share2) -->
+                                <span class="text-xl">🔗</span>
+                                Share
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Customization Panel -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <h2 class="text-2xl font-semibold mb-6 text-gray-800">Customize Your Gift Card</h2>
+
+                    <!-- Amount Input -->
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-medium mb-3">Gift Card Amount ($)</label>
+                        <input
+                            type="number"
+                            id="amount-input"
+                            value="100"
+                            placeholder="100"
+                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 text-xl font-mono"
+                        />
+                    </div>
+
+                    <!-- Theme Selection -->
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-medium mb-3">Choose Theme</label>
+                        <div id="theme-selection" class="grid grid-cols-5 gap-3">
+                            <!-- Theme buttons will be generated by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Recipient Name -->
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">Recipient Name</label>
+                        <input
+                            type="text"
+                            id="recipient-name-input"
+                            placeholder="Enter recipient's name"
+                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-500"
+                        />
+                    </div>
+
+                    <!-- Sender Name -->
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">Your Name</label>
+                        <input
+                            type="text"
+                            id="sender-name-input"
+                            placeholder="Enter your name"
+                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-500"
+                        />
+                    </div>
+
+                    <!-- Personal Message -->
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-medium mb-2">Personal Message</label>
+                        <textarea
+                            id="message-input"
+                            placeholder="Write a heartfelt message..."
+                            rows="4"
+                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 resize-none"
+                        ></textarea>
+                    </div>
+
+                    <!-- Info Box -->
+                    <div class="bg-blue-50 border border-blue-200 rounded-xl p-4">
+                        <p class="text-sm text-blue-800">
+                            <span class="block mb-2">💡 Your gift card code: <strong id="info-card-code"></strong></span>
+                            This code can be used for online or in-store purchases. The recipient will receive a beautiful digital card they can save or print.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Modal Container (Hidden by default) -->
+            <div id="payment-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+                <div id="modal-content-container" class="bg-white rounded-3xl max-w-lg w-full p-8 shadow-2xl relative animate-in">
+                    <!-- Modal content (Payment options or Success message will be rendered here) -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // State Management
+        const state = {
+            amount: '100',
+            recipientName: '',
+            senderName: '',
+            message: '',
+            selectedTheme: 'purple',
+            showPaymentModal: false,
+            selectedPayment: ''
+        };
+
+        // Constants
+        const themes = {
+            purple: 'from-purple-600 via-pink-500 to-orange-400',
+            blue: 'from-blue-600 via-cyan-500 to-teal-400',
+            green: 'from-green-600 via-emerald-500 to-lime-400',
+            red: 'from-red-600 via-rose-500 to-pink-400',
+            gold: 'from-yellow-600 via-amber-500 to-orange-400'
+        };
+
+        const paymentOptions = [
+            { id: 'paytm', name: 'Paytm', icon: '📱', color: 'bg-blue-500' },
+            { id: 'card', name: 'Debit/Credit Card', icon: '💳', color: 'bg-purple-500' },
+            { id: 'googlepay', name: 'Google Pay', icon: '🔵', color: 'bg-green-500' },
+            { id: 'amazonpay', name: 'Amazon Pay', icon: '🟠', color: 'bg-orange-500' },
+            { id: 'phonepe', name: 'PhonePe', icon: '🟣', color: 'bg-indigo-500' }
+        ];
+
+        // Unique card code generation
+        const cardCode = 'GC' + Math.random().toString(36).substring(2, 10).toUpperCase();
+
+        // --- DOM Elements ---
+        const $cardPreview = document.getElementById('gift-card-preview');
+        const $cardAmountDisplay = document.getElementById('card-amount-display');
+        const $cardCodeDisplay = document.getElementById('card-code-display');
+        const $infoCardCode = document.getElementById('info-card-code');
+        const $messageCard = document.getElementById('message-card');
+        const $recipientDisplay = document.getElementById('recipient-display');
+        const $messageDisplay = document.getElementById('message-display');
+        const $senderDisplay = document.getElementById('sender-display');
+        const $buyNowBtn = document.getElementById('buy-now-btn');
+        const $paymentModal = document.getElementById('payment-modal');
+        const $modalContentContainer = document.getElementById('modal-content-container');
+
+        // --- Core Render Functions ---
+
+        function updateCardPreview() {
+            // Update Theme
+            const currentThemeClass = themes[state.selectedTheme];
+            
+            // Remove all existing gradient classes using the spread operator
+            for (const key in themes) {
+                // Split the gradient string into individual class tokens
+                const classesToRemove = themes[key].split(' ');
+                $cardPreview.classList.remove(...classesToRemove);
+            }
+            
+            // Apply the new theme classes using the spread operator
+            $cardPreview.classList.add(...currentThemeClass.split(' '));
+
+            // Update Amount
+            const displayAmount = state.amount || '0';
+            $cardAmountDisplay.textContent = `$${displayAmount}`;
+            $buyNowBtn.textContent = `💰 Buy Now - $${displayAmount}`;
+
+            // Update Code (only done once on init, but kept here for completeness)
+            $cardCodeDisplay.textContent = cardCode;
+            $infoCardCode.textContent = cardCode;
+        }
+
+        function updateMessageCard() {
+            const hasContent = state.recipientName || state.senderName || state.message;
+            $messageCard.classList.toggle('hidden', !hasContent);
+
+            // Recipient
+            const $recipientNameSpan = $recipientDisplay.querySelector('span:last-child');
+            $recipientDisplay.classList.toggle('hidden', !state.recipientName);
+            if ($recipientNameSpan) $recipientNameSpan.textContent = state.recipientName;
+
+            // Message
+            $messageDisplay.classList.toggle('hidden', !state.message);
+            $messageDisplay.textContent = state.message ? `"${state.message}"` : '';
+
+            // Sender
+            const $senderNameSpan = $senderDisplay.querySelector('span:last-child');
+            $senderDisplay.classList.toggle('hidden', !state.senderName);
+            if ($senderNameSpan) $senderNameSpan.textContent = state.senderName;
+        }
+
+        function renderPaymentModal() {
+            if (state.showPaymentModal) {
+                $paymentModal.classList.remove('hidden');
+                $modalContentContainer.innerHTML = generatePaymentOptionsHTML();
+                
+                // Attach close handler and payment button handlers after rendering
+                document.getElementById('modal-close-btn').onclick = () => {
+                    state.showPaymentModal = false;
+                    renderPaymentModal();
+                };
+
+                document.querySelectorAll('.payment-option-btn').forEach(button => {
+                    button.onclick = (e) => {
+                        const paymentMethod = e.currentTarget.dataset.name;
+                        handlePayment(paymentMethod);
+                    };
+                });
+            } else {
+                $paymentModal.classList.add('hidden');
+                $modalContentContainer.innerHTML = '';
+            }
+        }
+        
+        // --- HTML Generation for Modal ---
+        function generatePaymentOptionsHTML() {
+            // CreditCard Icon (Placeholder for Lucide: CreditCard)
+            const creditCardIcon = `<span class="w-8 h-8 flex items-center justify-center text-green-600">💳</span>`;
+            
+            let optionsHtml = paymentOptions.map(option => `
+                <button
+                    data-name="${option.name}"
+                    class="payment-option-btn w-full p-5 rounded-xl border-2 border-gray-200 hover:border-blue-500 hover:bg-blue-50 transition-all flex items-center gap-4 group ${
+                        state.selectedPayment === option.name ? 'border-blue-500 bg-blue-50' : ''
+                    }"
+                >
+                    <div class="w-12 h-12 ${option.color} rounded-xl flex items-center justify-center text-2xl">
+                        ${option.icon}
+                    </div>
+                    <div class="flex-1 text-left">
+                        <div class="text-gray-900 font-medium">${option.name}</div>
+                        <div class="text-sm text-gray-500">Quick & Secure Payment</div>
+                    </div>
+                    <div class="text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                        &rarr;
+                    </div>
+                </button>
+            `).join('');
+
+            // X Icon (Placeholder for Lucide: X)
+            return `
+                <!-- Close Button -->
+                <button id="modal-close-btn" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors">
+                    <span class="w-6 h-6 text-2xl">&times;</span>
+                </button>
+
+                <!-- Header -->
+                <div class="text-center mb-8">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        ${creditCardIcon}
+                    </div>
+                    <h2 class="text-3xl font-bold mb-2 text-gray-800">Choose Payment Method</h2>
+                    <p class="text-gray-600">Total Amount: <span class="text-green-600 font-bold">$${state.amount}</span></p>
+                </div>
+
+                <!-- Payment Options -->
+                <div class="space-y-3 mb-6">
+                    ${optionsHtml}
+                </div>
+
+                <!-- Security Info -->
+                <div class="bg-gray-50 rounded-xl p-4 border border-gray-200">
+                    <div class="flex items-start gap-3">
+                        <div class="text-2xl">🔒</div>
+                        <div>
+                            <div class="text-sm text-gray-900 font-medium mb-1">Secure Payment</div>
+                            <div class="text-xs text-gray-600">
+                                Your payment information is encrypted and secure. We never store your card details.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function generateSuccessMessageHTML(paymentMethod) {
+            // Checkmark Icon
+            return `
+                <!-- Close Button -->
+                <button id="modal-close-btn" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors">
+                    <span class="w-6 h-6 text-2xl">&times;</span>
+                </button>
+                
+                <div class="text-center py-6">
+                    <div class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6 scale-110">
+                        <span class="text-4xl">✅</span>
+                    </div>
+                    <h2 class="text-3xl font-bold mb-3 text-gray-800">Payment Successful!</h2>
+                    <p class="text-lg text-gray-700 mb-6">
+                        You have successfully purchased a <strong class="text-green-600">$${state.amount}</strong> Gift Card.
+                    </p>
+                    <p class="text-sm text-gray-500 mb-4">
+                        <strong class="font-semibold">Method Used:</strong> ${paymentMethod}
+                    </p>
+                    <p class="text-sm text-gray-500 mb-8">
+                        The card code <strong>${cardCode}</strong> is now active.
+                    </p>
+                    <button id="modal-close-btn-footer" class="bg-blue-600 text-white py-3 px-6 rounded-xl hover:bg-blue-700 transition-colors font-semibold">
+                        Done
+                    </button>
+                </div>
+            `;
+        }
+
+        // --- Event Handlers ---
+
+        function handlePayment(paymentMethod) {
+            state.selectedPayment = paymentMethod;
+            
+            // Show success message immediately
+            $modalContentContainer.innerHTML = generateSuccessMessageHTML(paymentMethod);
+            
+            // Re-attach close handlers to the success screen buttons
+            const closeBtn = document.getElementById('modal-close-btn');
+            const closeFooterBtn = document.getElementById('modal-close-btn-footer');
+            
+            const closeAction = () => {
+                state.showPaymentModal = false;
+                state.selectedPayment = ''; // Reset selected payment after closing
+                renderPaymentModal();
+            };
+            
+            if (closeBtn) closeBtn.onclick = closeAction;
+            if (closeFooterBtn) closeFooterBtn.onclick = closeAction;
+        }
+
+        function attachInputListeners() {
+            document.getElementById('amount-input').addEventListener('input', (e) => {
+                state.amount = e.target.value;
+                updateCardPreview();
+            });
+
+            document.getElementById('recipient-name-input').addEventListener('input', (e) => {
+                state.recipientName = e.target.value;
+                updateMessageCard();
+            });
+
+            document.getElementById('sender-name-input').addEventListener('input', (e) => {
+                state.senderName = e.target.value;
+                updateMessageCard();
+            });
+
+            document.getElementById('message-input').addEventListener('input', (e) => {
+                state.message = e.target.value;
+                updateMessageCard();
+            });
+        }
+
+        function generateThemeButtons() {
+            const $themeSelection = document.getElementById('theme-selection');
+            $themeSelection.innerHTML = Object.entries(themes).map(([name, gradient]) => `
+                <button
+                    data-theme="${name}"
+                    title="${name}"
+                    class="theme-btn aspect-square rounded-xl bg-gradient-to-br ${gradient} border-4 transition-all duration-200 ${
+                        name === state.selectedTheme ? 'border-gray-900 scale-110' : 'border-transparent'
+                    }"
+                ></button>
+            `).join('');
+
+            // Attach listeners to theme buttons
+            document.querySelectorAll('.theme-btn').forEach(button => {
+                button.onclick = (e) => {
+                    const newTheme = e.currentTarget.dataset.theme;
+                    state.selectedTheme = newTheme;
+
+                    // Update button active state
+                    document.querySelectorAll('.theme-btn').forEach(btn => {
+                        const themeName = btn.dataset.theme;
+                        const themeClasses = themes[themeName].split(' ');
+                        // Remove active classes
+                        btn.classList.remove('border-gray-900', 'scale-110');
+                        btn.classList.add('border-transparent');
+                    });
+                    
+                    // Apply active classes to the clicked button
+                    e.currentTarget.classList.remove('border-transparent');
+                    e.currentTarget.classList.add('border-gray-900', 'scale-110');
+
+                    updateCardPreview();
+                };
+            });
+        }
+
+        function attachButtonListeners() {
+            $buyNowBtn.addEventListener('click', () => {
+                state.showPaymentModal = true;
+                renderPaymentModal();
+            });
+            
+            // Dummy actions for Download and Share buttons
+            document.getElementById('download-btn').addEventListener('click', () => {
+                const messageBox = document.createElement('div');
+                messageBox.className = 'fixed top-4 right-4 bg-blue-600 text-white p-4 rounded-lg shadow-xl animate-in';
+                messageBox.textContent = '📥 Download simulated! Check your device storage.';
+                document.body.appendChild(messageBox);
+                setTimeout(() => messageBox.remove(), 3000);
+            });
+
+            document.getElementById('share-btn').addEventListener('click', () => {
+                const messageBox = document.createElement('div');
+                messageBox.className = 'fixed top-4 right-4 bg-gray-600 text-white p-4 rounded-lg shadow-xl animate-in';
+                messageBox.textContent = '🔗 Share link copied to clipboard (simulated).';
+                document.body.appendChild(messageBox);
+                setTimeout(() => messageBox.remove(), 3000);
+            });
+        }
+
+        // --- Initialization ---
+        function initApp() {
+            // Set initial card code
+            document.getElementById('card-code-display').textContent = cardCode;
+            document.getElementById('info-card-code').textContent = cardCode;
+
+            // Set initial input values
+            document.getElementById('amount-input').value = state.amount;
+            
+            // Render initial UI elements
+            generateThemeButtons();
+            
+            // Initial state sync
+            updateCardPreview();
+            updateMessageCard();
+
+            // Attach all event listeners
+            attachInputListeners();
+            attachButtonListeners();
+        }
+
+        window.onload = initApp;
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,254 @@
+/* --- Global Styles --- */
+body {
+    font-family: 'Rubik', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #e0f2f1 0%, #fce4ec 100%); 
+    color: #333;
+    line-height: 1.7;
+}
+
+/* --- Header Styling --- */
+.page-header {
+    background-color: #008080; /* Teal Header */
+    padding: 20px 0;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 10px rgb(225, 238, 234);
+}
+
+.page-header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(255, 252, 252, 0.5);
+}
+
+.page-header h2 {
+    font-size: 20px;
+    font-weight: 400;
+    margin: 5px 0;
+}
+
+.effective-date {
+    font-size: 14px;
+    color: #f3edeb; /* हल्का Coral */
+}
+
+/* --- Main Container --- */
+.terms-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px 40px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Buttons --- */
+.button-group {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #008080; /* Teal Divider */
+}
+
+.action-btn {
+    padding: 10px 25px;
+    margin-left: 15px;
+    border: none;
+    border-radius: 30px; /* Pill Shape */
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.primary-btn {
+    background-color: #1b6a5b; /* Coral */
+    color: white;
+    box-shadow: 0 4px 8px rgba(22, 132, 103, 0.4);
+}
+
+.primary-btn:hover {
+    background-color: #3a9188 ;
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    background-color: #f0f0f0;
+    color: #555;
+    border: 1px solid #ddd;
+}
+
+.secondary-btn:hover {
+    background-color: #e0e0e0;
+}
+
+/* --- Sections --- */
+.term-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    border-left: 5px solid #008080; /* Teal Accent */
+    background-color: #f7fcfc; 
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.section-heading {
+    font-size: 20px;
+    font-weight: 700;
+    color: #004d4d; 
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+}
+
+.number-tag {
+    font-size: 24px;
+    color: #ff8a65; /* Coral Number */
+    margin-right: 10px;
+    font-weight: 700;
+}
+
+.section-content {
+    font-size: 15px;
+    text-align: justify;
+}
+
+/* List Styling */
+.term-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.term-list li {
+    margin-bottom: 12px;
+    font-size: 15px;
+    padding-left: 35px;
+    position: relative;
+}
+
+.list-icon {
+    font-size: 18px;
+    color: #008080; /* Teal Icon */
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* Highlight Section (Shipping/Returns) */
+.highlight-section {
+    background: linear-gradient(90deg, #ffedee, #f5fcfc); 
+    border: 1px solid #ff8a65;
+}
+
+.shipping-info a {
+    color: #ff8a65;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px dotted #ff8a65;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px dashed #ccc;
+    color: #999;
+    font-size: 14px;
+}
+
+
+/* --- Modal Background (The overall overlay) --- */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.6); 
+}
+
+/* --- Modal Content Box --- */
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; 
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* --- Modal Animation (Optional but attractive) --- */
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 10%; opacity: 1}
+}
+
+/* --- Close Button Style --- */
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #2f8f89; /* Coral color */
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* --- Modal Inner Content Styling --- */
+#modalTitle {
+    color: #004d4d; /* Dark Teal */
+    border-bottom: 2px solid #2f8f89; /* Coral line */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.modal-section {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #f0f7f7;
+    border-radius: 5px;
+}
+
+.modal-link {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    color: #2f8f89;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.archive-list-modal {
+    list-style: none;
+    padding-left: 0;
+}
+
+.archive-list-modal li {
+    padding: 8px 0;
+    border-bottom: 1px dotted #ccc;
+    font-size: 14px;
+}
+
+.version-date-modal {
+    font-weight: 600;
+    color: #008080;
+    margin-right: 10px;
+}

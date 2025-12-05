@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions | Online Clothing Store</title>
+    <link rel="stylesheet" href="t&c.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="page-header">
+        <h1>✨ ONLINE CLOTHING STORE ✨</h1>
+        <h2>Terms & Conditions</h2>
+        <p class="effective-date">Last Updated: November 2025</p>
+    </header>
+
+    <main class="terms-container">
+        
+        <div class="button-group">
+            <button class="action-btn primary-btn" onclick="showModal('User Agreement')">User Agreement</button>
+            <button class="action-btn secondary-btn" onclick="showModal('Archive')">Archive</button>
+        </div>
+
+        <div id="myModal" class="modal">
+
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h2 id="modalTitle"></h2>
+        <div id="modalContent">
+            </div>
+    </div>
+
+</div>
+        
+        <section class="term-section">
+            <h3 class="section-heading"><span class="number-tag">01.</span> Introduction and Acceptance</h3>
+            <p class="section-content">
+                Welcome to Online Clothing Store! By using our website and services, you agree to these Terms and Conditions. These terms are designed to ensure a smooth and fair shopping experience for everyone.
+            </p>
+        </section>
+
+        <section class="term-section">
+            <h3 class="section-heading"><span class="number-tag">02.</span> Products & Pricing</h3>
+            <p class="section-content">
+                We strive for 100% accuracy in product descriptions, colors, and stock. However, please note that clothing colors may vary slightly due to your monitor settings. All prices are final at checkout, but we reserve the right to modify prices without prior notice.
+            </p>
+        </section>
+
+        <section class="term-section">
+            <h3 class="section-heading"><span class="number-tag">03.</span> Orders & Payments</h3>
+            <ul class="term-list">
+                <li><span class="list-icon">💳</span> We accept all major credit/debit cards and secure payment gateways.</li>
+                <li><span class="list-icon">📦</span> We may, at our discretion, refuse or limit quantities per person or order.</li>
+                <li><span class="list-icon">🔔</span> You must provide current, complete, and accurate billing information.</li>
+            </ul>
+        </section>
+
+        <section class="term-section highlight-section">
+            <h3 class="section-heading"><span class="number-tag">04.</span> Shipping & Easy Returns</h3>
+            <div class="shipping-info">
+                <p><strong><span class="list-icon">🚚</span> Shipping:</strong> We aim for swift delivery! Expect standard shipping within 5-7 business days.</p>
+                <p><strong><span class="list-icon">🔄</span> Returns:</strong> Enjoy a 30-day hassle-free return policy on unworn, unwashed items with original tags. Final Sale items are excluded. <a href="#">Read Full Policy</a></p>
+            </div>
+        </section>
+        
+        <section class="term-section">
+            <h3 class="section-heading"><span class="number-tag">05.</span> User Conduct</h3>
+            <p class="section-content">
+                You agree not to use the site for any unlawful purpose. Harassment in any manner or form on the site is strictly forbidden.
+            </p>
+        </section>
+
+        <footer>
+            <p>🛍️ Shop Smart, Shop Safe | &copy; 2025 Online Clothing Store. All Rights Reserved.</p>
+        </footer>
+    </main>
+<!---
+    <script>
+        function showModal(title) {
+            alert(title + ' feature is under development. Thank you for your interest!');
+        }
+    </script> -->
+
+<script>
+    // यह फ़ंक्शन विशिष्ट कंटेंट के साथ एक मॉडल दिखाता है
+    function showModal(title) {
+        const modal = document.getElementById('myModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalContent = document.getElementById('modalContent');
+        
+        // मॉडल का शीर्षक सेट करें
+        modalTitle.textContent = title;
+
+        if (title === 'User Agreement') {
+            // User Agreement के लिए विस्तृत HTML कंटेंट
+            modalContent.innerHTML = `
+                <div class="modal-section">
+                    <h4>1. Binding Agreement</h4>
+                    <p>By clicking "I Agree," you acknowledge that you have read, understood, and agree to be bound by the full User Agreement of the Online Clothing Store.</p>
+                </div>
+                <div class="modal-section">
+                    <h4>2. Account Responsibility</h4>
+                    <p>You are solely responsible for maintaining the confidentiality of your account password and for all activities that occur under your account.</p>
+                </div>
+                <a href="user_agreement.html" target="_blank" class="modal-link">View Full User Agreement Page</a>
+            `;
+        } else if (title === 'Archive') {
+            // Archive के लिए HTML कंटेंट (पुराने संस्करणों की सूची)
+            modalContent.innerHTML = `
+                <ul class="archive-list-modal">
+                    <li><span class="version-date-modal">Effective: 01 May 2025</span> - <a href="#">Version 2.1 (Download PDF)</a></li>
+                    <li><span class="version-date-modal">Effective: 01 Jan 2025</span> - <a href="#">Version 1.0 (Download PDF)</a></li>
+                </ul>
+                <p style="margin-top: 15px;">Historical terms are provided for transparency and record-keeping.</p>
+            `;
+        }
+        
+        // मॉडल को डिस्प्ले करें
+        modal.style.display = 'block';
+    }
+
+    // मॉडल को बंद करने का फ़ंक्शन
+    function closeModal() {
+        document.getElementById('myModal').style.display = 'none';
+    }
+
+    // जब यूज़र मॉडल के बाहर क्लिक करता है, तो उसे बंद कर दें
+    window.onclick = function(event) {
+        const modal = document.getElementById('myModal');
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
+</script>
+
+</body>
+</html>

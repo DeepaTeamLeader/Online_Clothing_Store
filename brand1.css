@@ -1,0 +1,447 @@
+
+/* General Reset and Base Styles */
+* {
+    /* Box-sizing ensures padding and border don't increase the element's overall width/height */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4; /* Light gray background for the entire page */
+    color: #333; /* Dark text for readability */
+}
+
+/* Color Palette */
+:root {
+    --primary-color: #008080; /* Teal Green - for main accents, buttons, and links */
+    --secondary-color: #ffffff; /* White - for backgrounds */
+    --text-dark: #2c3e50; /* Dark blue/gray - for primary text */
+    --text-light: #ecf0f1; /* Light gray - for footer/header text */
+    --price-color: #e74c3c; /* Red - for discount price emphasis */
+    --old-price-color: #7f8c8d; /* Gray - for struck-through original price */
+}
+
+
+/* --- 1. Navigation Bar --- */
+.navbar {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between; /* Space out title, search, and links */
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensures the navbar stays on top of other content */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar h1 {
+    font-size: 1.8em;
+    margin: 0;
+}
+
+/* Search Box Styling */
+.search-container {
+    flex-grow: 1; /* Allows the search bar to take up available space */
+    max-width: 400px;
+    margin: 0 20px;
+}
+
+.search-box {
+    display: flex;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: var(--secondary-color);
+}
+
+.search-box input[type="text"] {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: none;
+    font-size: 1em;
+    outline: none;
+    color: var(--text-dark);
+}
+
+.search-box button {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color 0.3s;
+}
+
+.search-box button:hover {
+    background-color: #005f5f; /* Darker teal on hover */
+}
+
+/* Nav Links Styling */
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+/* Hide the menu toggle on desktop */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5em;
+}
+
+
+/* --- 2. Product Grid --- */
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Space between product cards */
+    padding: 30px 5%;
+    max-width: 1400px; /* Max width for the content area */
+    margin: 0 auto; /* Center the container */
+}
+
+.product-card {
+    background-color: var(--secondary-color);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 280px; /* Fixed width for card */
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.product-card:hover {
+    transform: translateY(-5px); /* Lift the card on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+.product-card h3 {
+    font-size: 1.2em;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+}
+
+.product-card .price {
+    font-size: 1.3em;
+    color: var(--price-color);
+    font-weight: bold;
+}
+
+.product-card .old {
+    color: var(--old-price-color);
+    text-decoration: line-through;
+    font-size: 0.9em;
+    margin-left: 10px;
+}
+
+.product-card .off {
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+
+/* --- 3. Footer --- */
+.footer {
+    background-color: var(--text-dark); /* Dark background for contrast */
+    color: var(--text-light);
+    padding: 40px 5%;
+    margin-top: 30px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto 20px;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer h4 {
+    color: var(--primary-color); /* Teal green heading */
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    text-transform: uppercase;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer ul li {
+    margin-bottom: 8px;
+}
+
+.footer ul li a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer ul li a:hover {
+    color: var(--primary-color); /* Teal green on hover */
+}
+
+.footer p {
+    margin-bottom: 8px;
+    font-size: 0.9em;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.85em;
+    color: var(--old-price-color);
+}
+
+
+/* --- 4. Responsive Design (Mobile First) --- */
+
+/* Adjusts the layout for smaller screens */
+@media (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap;
+        padding: 10px 20px;
+    }
+
+    .navbar h1 {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .search-container {
+        order: 3; /* Move search below the title */
+        width: 100%;
+        max-width: none;
+        margin: 10px 0;
+    }
+
+    .nav-links {
+        display: none; /* Hide navigation links by default on mobile */
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: #007070; /* Slightly darker background for the menu when open */
+        order: 4; /* Move links below search */
+    }
+
+    .nav-links li {
+        margin: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 10px 0;
+    }
+
+    .menu-toggle {
+        display: block; /* Show the hamburger menu icon */
+        order: 2;
+    }
+
+    /* JavaScript will add this class to show the menu */
+    .nav-links.active {
+        display: flex;
+    }
+
+    .product-card {
+        width: 45%; /* Two cards per row on smaller screens */
+        min-width: 180px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-card {
+        width: 90%; /* One card per row on very small screens */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- New Detail Page Specific CSS for Men's Section (Teal Theme) --- */
+:root {
+    --primary-teal: #008080; /* Teal Green */
+    --secondary-teal: #009999; /* Slightly brighter teal */
+    --background-color: #F0FFFF; /* Light Cyan/White background */
+    --price-color: #004d4d; /* Darker Teal for emphasis */
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: var(--background-color);
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    background: white; 
+    padding: 20px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.detail-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 50px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.image-gallery {
+    flex: 1;
+    padding-right: 40px;
+}
+
+.main-image {
+    width: 100%;
+    max-height: 700px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.info-panel {
+    flex: 1;
+}
+
+.product-title {
+    color: var(--primary-teal); /* Teal Title */
+    font-size: 2.5em;
+    margin-top: 0;
+}
+
+.price-large {
+    font-size: 2em;
+    color: var(--price-color); /* Darker Teal Price */
+    font-weight: 700;
+    margin: 10px 0 20px 0;
+}
+
+/* General styling for the size buttons */
+.size-selector button {
+    padding: 10px 15px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    background-color: #f0f8ff; /* Light bluish white */
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.2s ease;
+    font-size: 16px;
+}
+
+/* Hover effect */
+.size-selector button:hover {
+    border-color: var(--primary-teal);
+}
+
+/* Styling for the SELECTED button */
+.size-selector button.selected {
+    border-color: var(--secondary-teal); /* Highlighted border */
+    background-color: #e0ffff; /* Light background */
+    color: var(--primary-teal); /* Teal text */
+    font-weight: bold;
+    box-shadow: 0 0 5px #afeeee; /* Subtle shadow */
+}
+
+
+.action-buttons {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+}
+
+/* ADDED: Form style for better button layout */
+.action-buttons form {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+
+/* Styling for ADD TO BAG and BUY NOW buttons */
+.buy-now-btn, .add-to-cart-btn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    margin-right: 15px;
+    transition: background-color 0.2s;
+}
+
+.add-to-cart-btn {
+    background-color: var(--primary-teal); /* Primary Teal */
+    color: white;
+}
+
+.add-to-cart-btn:hover {
+    background-color: var(--secondary-teal);
+}
+
+.buy-now-btn {
+    background-color: var(--price-color); /* Darker Teal for the secondary action */
+    color: white;
+}
+
+.buy-now-btn:hover {
+    background-color: var(--primary-teal);
+}

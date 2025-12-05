@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KETCH Shirt - Product Detail</title>
+    <link rel="stylesheet" href="brand1.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <a href="brand1.html" style="text-decoration: none; color: var(--primary-teal, #008080); font-size: 1.5rem">&larr; Back to Products</a>
+        <div style="display: flex;">
+            <a href="cart.php" id="cart-icon-link" style="
+                position: relative; 
+                text-decoration: none; 
+                font-size: 1.5em; 
+                padding: 8px 12px; 
+                border-radius: 5px;
+                background-color: var(--primary-teal, #008080); 
+                color: #ffffff; 
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            ">
+                &#x1F6D2; <span id="cart-count-badge" style="
+                    position: absolute;
+                    top: -5px;
+                    right: -5px;
+                    background-color: red; 
+                    color: white;
+                    font-size: 0.6em;
+                    padding: 2px 5px;
+                    border-radius: 50%;
+                    line-height: 1;
+                ">0</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="detail-container">
+        
+        <div class="image-gallery">
+            <img id="mainImage" src = "images/ketch2main-img.png" class="main-image" alt="KETCH Graphic Shirt">
+            <div class="thumbs" style="display: flex; gap: 10px; margin-top: 15px;">
+                <img src="images/ketch2img2.png" onclick="changeImage(this)" style="width: 80px; height: 80px; object-fit: cover; border: 1px solid #ddd; cursor: pointer;">
+                <img src="images/ketch2img3.png" onclick="changeImage(this)" style="width: 80px; height: 80px; object-fit: cover; border: 1px solid #ddd; cursor: pointer;">
+                <img src="images/ketch2img4.png" onclick="changeImage(this)" style="width: 80px; height: 80px; object-fit: cover; border: 1px solid #ddd; cursor: pointer;">
+                <img src="images/ketch2img5.png" onclick="changeImage(this)" style="width: 80px; height: 80px; object-fit: cover; border: 1px solid #ddd; cursor: pointer;">
+                <img src="images/ketch2img6.png" onclick="changeImage(this)" style="width: 80px; height: 80px; object-fit: cover; border: 1px solid #ddd; cursor: pointer;">
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <h1 class="product-title">KETCH Slim Fit Graphic Printed Casual Shirt 👕</h1>
+            <p style="color: #666; font-size: 1.2em;">Brand: Ketch</p>
+            
+            <p class="price-large">₹629 <span class="old" style="font-size: 0.5em; color: #999; text-decoration: line-through;">₹2099</span> <span class="off" style="font-size: 0.5em; color: #008080;">(Rs.1470 OFF)</span></p>
+            <p style="font-size: 0.9em; color: #666;">inclusive of all taxes</p>
+
+            <div class="rating-reviews" style="color: #008080; margin-bottom: 20px; margin-top: 10px;">
+                ★★★☆☆ (3.8/5) | 200+ Ratings
+            </div>
+
+            <h3 style="margin-top: 25px;">📏 Select Size</h3>
+            <div class="size-selector">
+                <button>39</button>
+                <button>40</button>
+                <button>42</button>
+                <button>44</button>
+            </div>
+
+            <div class="action-buttons">
+                <form id="add-to-cart-form" action="add_to_bag_men.php" method="POST">
+                    <input type="hidden" name="product_id" value="KETCH_GRAPHIC_629">
+                    <input type="hidden" name="product_name" value="Ketch Graphic Shirt">
+                    <input type="hidden" name="product_price" value="629">
+                    <input type="hidden" name="selected_size" id="input-selected-size"> 
+                    
+                    <button id="add-to-cart-btn" type="submit" class="add-to-cart-btn">ADD TO BAG</button>
+                </form>
+
+                <button class="buy-now-btn" id="buy-now-redirect">BUY NOW</button>
+            </div>
+            
+            <h3 style="margin-top: 30px;">🚚 Delivery & Product Information</h3>
+            <div class="delivery-options" style="font-size: 0.95em; color: #333;">
+                <p>📦 Get it by <strong>Thu, Sep 20</strong></p>
+                <p>💵 Pay on delivery available</p>
+                <p>↩️ Easy 7 days return & exchange available</p>
+                <small style="color: green;">100% Original Products</small>
+            </div>
+
+            <div class="product-details-section">
+                <h3 style="margin-top: 20px;">ℹ️ PRODUCT DETAILS</h3>
+                <ul>
+                    <li>Sea green & black graphic printed opaque casual shirt</li>
+                    <li>Spread collar, button placket, 1 patch pocket</li>
+                    <li>Long regular sleeves, curved hem</li>
+                    <li>Fit : Slim Fit (Model height 6' is wearing a size 40)</li>
+                    <li>Material: Cotton, Machine Wash</li>
+                </ul>
+                
+                <h4 style="margin-top: 15px;">Specifications</h4>
+                <div class="specs" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.9em;">
+                    <div><strong>Sleeve Length</strong><br>Long Sleeves</div>
+                    <div><strong>Collar</strong><br>Spread Collar</div>
+                    <div><strong>Fit</strong><br>Slim Fit</div>
+                    <div><strong>Length</strong><br>Regular</div>
+                    <div><strong>Hemline</strong><br>Curved</div>
+                    <div><strong>Placket</strong><br>Button Placket</div>
+                    <div><strong>Number of Pockets</strong><br>1</div>
+                    <div><strong>Transparency</strong><br>Opaque</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Image gallery function copied from Code 1
+        function changeImage(smallImg) {
+            let mainImg = document.getElementById("mainImage");
+            mainImg.src = smallImg.src;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- 1. Element Declarations ---
+            // Targeting buttons inside the size-selector div (Code 1 style)
+            const sizeButtons = document.querySelectorAll('.size-selector button'); 
+            const hiddenSizeInput = document.getElementById('input-selected-size'); 
+            const addToBagForm = document.getElementById('add-to-cart-form'); 
+            const buyNowBtn = document.getElementById('buy-now-redirect'); 
+            
+            let selectedSize = null; 
+            
+            
+            // --- 2. Size Selection & Data Update Logic (Logic of Code 1) ---
+            sizeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    
+                    // Visual Logic: Remove 'selected' from all
+                    sizeButtons.forEach(btn => {
+                        btn.classList.remove('selected'); 
+                    });
+
+                    // Visual Logic: Add 'selected' to the clicked button
+                    this.classList.add('selected');
+
+                    // Data Logic: Store the size and update the hidden form field
+                    selectedSize = this.textContent.trim(); 
+                    hiddenSizeInput.value = selectedSize; 
+                    
+                    console.log("Size selected: " + selectedSize);
+                });
+            });
+
+
+            // --- 3. ADD TO BAG/FORM Submission Logic (Validation of Code 1) ---
+            addToBagForm.addEventListener('submit', function(event) {
+                
+                // Check if selectedSize is null or empty string
+                if (selectedSize === null || selectedSize === '') {
+                    event.preventDefault(); // Stop form submission
+                    alert("Please select a size (39, 40, 42, or 44) before adding to bag.");
+                    return;
+                }
+                
+                // If size selected, form submission proceeds
+            });
+
+
+            // --- 4. BUY NOW Logic (Validation and Redirect of Code 1) ---
+            buyNowBtn.addEventListener('click', function() {
+                if (selectedSize === null || selectedSize === '') {
+                    alert("Please select a size before proceeding to Buy Now.");
+                    return;
+                }
+                
+                // Redirects to checkout.php with product details and size in the URL
+                window.location.href = "checkout.php?quickbuy=true&product_id=KETCH_GRAPHIC_629&size=" + selectedSize;
+            });
+            
+        });
+    </script>
+</body>
+</html>

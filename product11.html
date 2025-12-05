@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HIGHLANDER</title>
+  <link rel="stylesheet" href="brand1.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <a href="brand1.html" style="text-decoration: none; color: var(--primary-teal); font-size: 1.5rem">&larr; Back to Products</a>
+        <div style="display: flex;">
+            <a href="cart.php" id="cart-icon-link" style="
+                position: relative; 
+                text-decoration: none; 
+                font-size: 1.5em; 
+                padding: 8px 12px; 
+                border-radius: 5px;
+                background-color: var(--primary-teal); 
+                color: #ffffff; 
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            ">
+                &#x1F6D2; <span id="cart-count-badge" style="
+                    position: absolute;
+                    top: -5px;
+                    right: -5px;
+                    background-color: red; 
+                    color: white;
+                    font-size: 0.6em;
+                    padding: 2px 5px;
+                    border-radius: 50%;
+                    line-height: 1;
+                ">0</span>
+            </a>
+        </div>
+    </header>
+
+  <main class="detail-container">
+    <div class="image-gallery">
+      <img id="mainImage" src = "images/highlander-trouser-main-img.png" class="main-image" alt="trouser">
+      <div class="thumbs" style="display: flex; gap: 10px; margin-top: 15px;">
+        <img src="images/highlander-trouser-main-img.png" onclick="changeImage(this)" style="width: 80px; height: 80px; object-fit: cover; border: 1px solid #ddd; cursor: pointer;">
+        <img src="images/highlander-trouser-img2.png" onclick="changeImage(this)" style="width: 80px; height: 80px; object-fit: cover; border: 1px solid #ddd; cursor: pointer;">
+        <img src="images/highlander-trouser-img3.png" onclick="changeImage(this)" style="width: 80px; height: 80px; object-fit: cover; border: 1px solid #ddd; cursor: pointer;">
+        <img src="images/highlander-trouser-img4.png" onclick="changeImage(this)" style="width: 80px; height: 80px; object-fit: cover; border: 1px solid #ddd; cursor: pointer;">
+        <img src="images/highlander-trouser-img5.png" onclick="changeImage(this)" style="width: 80px; height: 80px; object-fit: cover; border: 1px solid #ddd; cursor: pointer;">
+        <img src="images/highlander-trouser-img6.png" onclick="changeImage(this)" style="width: 80px; height: 80px; object-fit: cover; border: 1px solid #ddd; cursor: pointer;">
+      </div>
+    </div>
+
+    <div class="info-panel">
+      <h1 class="product-title">HIGHLANDER Highlander Men Elasticated Relaxed Soft Trousers</h1>
+      <p style="color: #666; font-size: 1.2em;">Brand: HIGHLANDER</p>
+      <p class="price-large">₹849 <span class="old" style="font-size: 0.5em; color: #999; text-decoration: line-through;">₹3399</span> <span class="off" style="font-size: 0.5em; color: #008080;">(75% OFF)</span></p>
+      <p style="font-size: 0.9em; color: #666;">inclusive of all taxes</p>
+      
+      <div class="rating-reviews" style="color: #008080; margin-bottom: 20px; margin-top: 10px;">
+        ★★★★☆ (4.0/5) | 100+ Ratings 
+      </div>
+
+      <h3 style="margin-top: 25px;">📏 Select Size</h3>
+      <div class="size-selector">
+        <button>30</button>
+        <button>32</button>
+        <button>34</button>
+        <button>36</button>
+      </div>
+
+      <div class="action-buttons">
+          <form id="add-to-cart-form" action="add_to_bag_men.php" method="POST">
+              <input type="hidden" name="product_id" value="HIGHLANDER_TRSR_849">
+              <input type="hidden" name="product_name" value="Highlander Relaxed Trousers">
+              <input type="hidden" name="product_price" value="849">
+              <input type="hidden" name="selected_size" id="input-selected-size">
+              <button id="add-to-cart-btn" type="submit" class="add-to-cart-btn">ADD TO BAG</button>
+          </form>
+          
+          <button class="buy-now-btn" id="buy-now-redirect">BUY NOW</button>
+      </div>
+    
+      <h3 style="margin-top: 30px;">🚚 Delivery & Product Information</h3>
+  <div class="delivery-options" style="font-size: 0.95em; color: #333;">
+    <p>📦 Get it by <strong>Thu, Sep 25</strong></p>
+    <p>💵 Pay on delivery available</p>
+    <p>↩️ Easy 7 days return & exchange available</p>
+    <small style="color: green;">100% Original Products</small>
+  </div>
+
+  <div class="product-details-section">
+  <h3 style="margin-top: 20px;">ℹ️ PRODUCT DETAILS</h3>
+  <ul>
+    <li>Brown woven trousers</li>
+    <li>Relaxed fit, Mid-rise</li>
+    <li>Solid pattern, Flat-front design</li>
+    <li>4 pockets, Regular length</li>
+  </ul>
+
+  <h4 style="margin-top: 15px;">Size & Fit</h4>
+  <p>Fit : Relaxed Fit</p>
+  <p>The model (height 6') is wearing a size 32</p>
+
+  <h4 style="margin-top: 15px;">Material & Care</h4>
+  <p>Cotton Linen </p>
+  <p>Machine Wash</p>
+
+  <h4 style="margin-top: 15px;">Specifications</h4>
+  <div class="specs" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.9em;">
+    
+    <div><strong>Waist Rise</strong><br>Mid-rise</div>
+    <div><strong>Length</strong><br>Regular</div>
+    <div><strong>Fit</strong><br>Relaxed Fit</div>
+    <div><strong>Closure</strong><br>Button</div>
+    <div><strong>Type of Pleat</strong><br>Flat-Front</div>
+    <div><strong>Wash Care</strong><br>Machine Wash</div>
+    <div><strong>Fly Type</strong><br>Zip</div>
+    <div><strong>Number of Pockets</strong><br>4</div>
+    <div><strong>Features</strong><br>Plain</div>
+    <div><strong>Number of Items</strong><br>1</div>
+    <div><strong>Package Contains</strong><br>1 trouser</div>
+    
+  </div>
+</div>
+
+</div>
+</main>
+
+
+  <script>
+    function changeImage(smallImg) {
+        let mainImg = document.getElementById("mainImage");
+        mainImg.src = smallImg.src;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+    
+        const sizeButtons = document.querySelectorAll('.size-selector button');
+        const hiddenSizeInput = document.getElementById('input-selected-size'); 
+        const addToBagForm = document.getElementById('add-to-cart-form'); 
+        const buyNowBtn = document.getElementById('buy-now-redirect'); 
+        let selectedSize = null; 
+        
+        // Use .size-selector button for consistency
+        sizeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                sizeButtons.forEach(btn => {
+                    btn.classList.remove('selected');
+                });
+                this.classList.add('selected');
+                selectedSize = this.textContent.trim(); 
+                hiddenSizeInput.value = selectedSize; 
+            });
+        });
+
+        addToBagForm.addEventListener('submit', function(event) {
+            if (selectedSize === null || selectedSize === '') {
+                event.preventDefault(); 
+                alert("Please select a size (30, 32, 34, or 36) before adding to bag.");
+            }
+        });
+
+        buyNowBtn.addEventListener('click', function() {
+            if (selectedSize === null || selectedSize === '') {
+                alert("Please select a size before proceeding to Buy Now.");
+                return;
+            }
+            window.location.href = "checkout.php?quickbuy=true&product_id=HIGHLANDER_TRSR_849&size=" + selectedSize;
+        });
+        
+    });
+  </script>
+</body>
+</html>
